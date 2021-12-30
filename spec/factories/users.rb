@@ -10,6 +10,7 @@
 #  current_sign_in_ip     :string
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  is_admin               :boolean
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
 #  profilable_type        :string
