@@ -1,1 +1,36 @@
 @import "bootstrap";
+.navbar-brand {
+    font-size: 1.38em;
+}
+body
+{
+    background-color: #E7EFF1;
+    font-family: system-ui;
+    font-size: 20px;
+    text-align: center;
+    color: #182044  ;
+}
+div.field {
+    color: #182044;
+    margin-bottom: 15px; 
+}
+div.actions {
+  margin-bottom: 15px; 
+
+}
+
+a:visited {
+    color: rgb(141, 184, 224); 
+}
+a, a:visited, a:focus, a:active, a:hover{
+    outline:0 none !important;
+}
+a:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(166, 194, 218); }
+  
+th {
+    padding-bottom: 5px; }
+  
+td {
+    padding: 0 5px 7px; }
