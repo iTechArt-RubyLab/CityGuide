@@ -34,6 +34,7 @@ gem 'devise'
 gem 'faker'
 gem 'jquery-rails'
 gem 'popper_js', '~> 2.9.3'
+gem 'pundit'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'factory_bot_rails'
