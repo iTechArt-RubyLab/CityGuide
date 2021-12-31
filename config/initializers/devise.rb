@@ -24,8 +24,11 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
+  OmniAuth.config.full_host = Rails.env.production? ? 'https://domain.com' : 'http://localhost:3000'
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-
+  config.omniauth :github, 'a7e9cb9b0d8712511fb9','172e25a4fd2346e9868a1fa1886d8c925a495363',scope: 'user:email'
+  config.omniauth :linkedin, '78ptv2aobax9ie', 'KqfLzv9MdSHHmQ51', scope: 'r_liteprofile r_emailaddress'
+  config.omniauth :google_oauth2, '1098176162951-ll3j1h2u0oflahu0pmvuiue6f8r655s5.apps.googleusercontent.com', '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', { name: "google" }
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
