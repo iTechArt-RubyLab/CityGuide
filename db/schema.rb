@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2021_12_30_145942) do
     t.datetime "remember_created_at"
     t.string "profilable_type"
     t.bigint "profilable_id"
+    t.string "uid"
+    t.string "provider"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
