@@ -2,6 +2,10 @@
 
 module Users
   class ConfirmationsController < Devise::ConfirmationsController
+
+    def index
+
+    end
     # GET /resource/confirmation/new
     # def new
     #   super
