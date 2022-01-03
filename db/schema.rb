@@ -16,12 +16,17 @@ ActiveRecord::Schema.define(version: 2021_12_30_145942) do
   enable_extension "plpgsql"
 
   create_table "entity_profiles", force: :cascade do |t|
+    t.string "name"
+    t.string "surname"
+    t.date "age"
+    t.text "note"
+    t.text "contact_info"
     t.string "title_company"
     t.float "min_price"
     t.time "min_time"
     t.float "price_one_hour"
     t.float "price_two_hours"
-    t.integer "time_work"
+    t.time "time_work"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
