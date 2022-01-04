@@ -5,7 +5,7 @@ class CreateEntityProfiles < ActiveRecord::Migration[6.1]
       t.string :surname
       t.date :age
       t.text :note
-      t.text :contact_info
+      t.references :contact_information
       t.string :title_company
       t.float :min_price
       t.integer :min_time
