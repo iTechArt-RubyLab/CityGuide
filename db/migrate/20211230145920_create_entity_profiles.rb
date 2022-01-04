@@ -13,7 +13,8 @@ class CreateEntityProfiles < ActiveRecord::Migration[6.1]
       t.float :price_two_hours
       t.time :start_work
       t.time :end_work
-    
+      t.integer :type_of_service
+
       t.timestamps
     end
   end

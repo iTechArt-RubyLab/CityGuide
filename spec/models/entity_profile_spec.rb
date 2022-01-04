@@ -14,6 +14,7 @@
 #  start_work             :time
 #  surname                :string
 #  title_company          :string
+#  type_of_service        :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  contact_information_id :bigint

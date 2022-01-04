@@ -66,7 +66,9 @@
       <%= f.time_field :time_work%><br />
       Input time end of work:
       <%= f.time_field :time_work%><br />
-      <%= f.button "Submit", type: "submit", :class=> "btn btn-primary",style: "background-color: #91D6F1;margin-left: 330px;"%>
+      Input type of service:
+      <%= f.select :type_of_service,EntityProfile.type_of_services.each{|type| type.first}%>
+      <%= f.button "Submit", type: "submit", :class=> "btn btn-primary",style: "background-color: #91D6F1;margin-left: 35px;margin-top: 60px;"%>
     <% end %>
   </div>
 </div>
