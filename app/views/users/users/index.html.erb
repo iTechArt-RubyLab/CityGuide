@@ -23,7 +23,13 @@
     Note: 
     <%= f.text_field :note,style: "width: 64.2%;height: 100px"%><br />
     Input your phone number(Format: 029-456-7890):
-    <%= f.telephone_field :contact_info,pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}"%><br />
+    <%= f.telephone_field :contact_information_phone,pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}"%><br />
+    Input your e-mail address:
+    <%= f.text_field :contact_information_email_address,style: "width: 46%"%><br />
+    Input your address:
+    <%= f.text_field :contact_information_address,style: "width: 52%"%><br />
+    Input your messenger link:
+    <%= f.text_field :contact_information_messenger_link,style: "width: 46%"%><br />
     <%= f.button "Submit", type: "submit", :class=> "btn btn-primary",style: "background-color: #91D6F1;margin-left: 330px;"%>
   <% end %>
 </div>
@@ -39,7 +45,13 @@
       Note: 
       <%= f.text_field :note,style: "width: 64.1%;height: 100px"%><br />
       Input your phone number(Format: 029-456-7890):
-      <%= f.telephone_field :contact_info,pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}"%><br />
+      <%= f.telephone_field :contact_information_phone,pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}"%><br />
+      Input your e-mail address:
+      <%= f.text_field :contact_information_email_address,style: "width: 46%"%><br />
+      Input your address:
+      <%= f.text_field :contact_information_address,style: "width: 52%"%><br />
+      Input your messenger link:
+      <%= f.text_field :contact_information_messenger_link,style: "width: 46%"%><br />
       Input title of your company:
       <%= f.text_field :title_company,style: "width: 45%"%><br />
       Input minimal price($):  

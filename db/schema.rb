@@ -10,25 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_30_145942) do
+ActiveRecord::Schema.define(version: 2022_01_04_142104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contact_informations", force: :cascade do |t|
+    t.string "phone_number"
+    t.string "email_address"
+    t.string "address"
+    t.string "messenger_link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "entity_profiles", force: :cascade do |t|
     t.string "name"
     t.string "surname"
     t.date "age"
     t.text "note"
-    t.text "contact_info"
+    t.bigint "contact_information_id"
     t.string "title_company"
     t.float "min_price"
-    t.time "min_time"
+    t.integer "min_time"
     t.float "price_one_hour"
     t.float "price_two_hours"
-    t.time "time_work"
+    t.time "start_work"
+    t.time "end_work"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["contact_information_id"], name: "index_entity_profiles_on_contact_information_id"
   end
 
   create_table "human_profiles", force: :cascade do |t|
@@ -36,9 +47,10 @@ ActiveRecord::Schema.define(version: 2021_12_30_145942) do
     t.string "surname"
     t.date "age"
     t.text "note"
-    t.text "contact_info"
+    t.bigint "contact_information_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["contact_information_id"], name: "index_human_profiles_on_contact_information_id"
   end
 
   create_table "users", force: :cascade do |t|
