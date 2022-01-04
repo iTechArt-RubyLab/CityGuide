@@ -14,6 +14,7 @@
 #  start_work             :time
 #  surname                :string
 #  title_company          :string
+#  type_of_service        :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  contact_information_id :bigint
@@ -25,4 +26,5 @@
 class EntityProfile < ApplicationRecord
   has_one :user, as: :profilable
   belongs_to :contact_information
+  enum type_of_service: %i[museum excursion transport hotel restaurant theaters entertainment]
 end

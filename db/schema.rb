@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2022_01_04_142104) do
     t.float "price_two_hours"
     t.time "start_work"
     t.time "end_work"
+    t.integer "type_of_service"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["contact_information_id"], name: "index_entity_profiles_on_contact_information_id"
