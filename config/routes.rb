@@ -9,4 +9,6 @@ Rails.application.routes.draw do
         omniauth_callbacks: 'omniauth',
 
   }
+  resources :entity_profiles #plural
+  resources :human_profiles
 end

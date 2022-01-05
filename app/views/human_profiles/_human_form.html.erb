@@ -1,0 +1,26 @@
+<%= stylesheet_link_tag "users" %>
+<h2>Fill in your personal profile</h2>
+<div id = "contact" class="contact_form">
+  <%= form_for :contact_information,url: human_profiles_path do |f|%>
+    Input your phone number(Format: 029-456-7890):
+    <%= f.telephone_field :phone_number,pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}"%><br />
+    Input your e-mail address:
+    <%= f.text_field :email_address,style: "width: 46%"%><br />
+    Input your address:
+    <%= f.text_field :address,style: "width: 52%"%><br />
+    Input your messenger link:
+    <%= f.text_field :messenger_link,style: "width: 46%"%><br />
+  <% end %>
+</div>
+<div id="human" class="human_form">
+  <%= form_for :human_profile,url: human_profiles_path do |f| %>
+    Input your name:
+    <%= f.text_field :name,size: 45%><br />
+    Input your surname:
+    <%= f.text_field :surname,style: "width: 51.5%"%><br />
+    Birthday: 
+    <%= f.date_field :age %><br />
+    Note: 
+    <%= f.text_field :note,style: "width: 64.2%;height: 100px"%><br />
+  <% end %>
+</div>

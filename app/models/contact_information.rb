@@ -11,6 +11,6 @@
 #  updated_at     :datetime         not null
 #
 class ContactInformation < ApplicationRecord
-    has_one :entity_profile
-    has_one :human_profile
+  has_one :entity_profile
+  has_one :human_profile
 end

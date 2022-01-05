@@ -1,0 +1,43 @@
+<%= stylesheet_link_tag "users" %>
+<h2>Fill in your personal profile</h2>
+<div id = "contact" class="contact_form">
+  <%= form_for :contact_information,url: entity_profiles_path do |f|%>
+    Input your phone number(Format: 029-456-7890):
+    <%= f.telephone_field :phone_number,pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}"%><br />
+    Input your e-mail address:
+    <%= f.text_field :email_address,style: "width: 46%"%><br />
+    Input your address:
+    <%= f.text_field :address,style: "width: 52%"%><br />
+    Input your messenger link:
+    <%= f.text_field :messenger_link,style: "width: 46%"%><br />
+  <% end %>
+</div>
+<div id="entity" class="entity_form">
+  <%= form_for :entity_profile,url: entity_profiles_path do |f| %>
+    Input your name:
+    <%= f.text_field :name,size: 45%><br />
+    Input your surname:
+    <%= f.text_field :surname,style: "width: 51.5%"%><br />
+    Birthday: 
+    <%= f.date_field :age %><br />
+    Note: 
+    <%= f.text_field :note,style: "width: 64.1%;height: 100px"%><br />
+    Input title of your company:
+    <%= f.text_field :title_company,style: "width: 45%"%><br />
+    Input minimal price($):  
+    <%= f.text_field :min_price,style: "width: 49%"%><br />
+    Input minimal time(minute):
+    <%= f.text_field :min_time,size: 37%><br />
+    Input price of one hour($):
+    <%= f.text_field :price_one_hour,style: "width: 45.5%"%><br />
+    Input price of two hours($):
+    <%= f.text_field :price_two_hours,size: 37.5%><br />
+    Input time start of work:
+    <%= f.time_field :start_work%><br />
+    Input time end of work:
+    <%= f.time_field :end_work%><br />
+    Input type of service:
+    <%= f.select :type_of_service,EntityProfile.type_of_services.each{|type| type.first}%>
+    <%= f.button "Submit", type: "submit", :class=> "btn btn-primary",style: "background-color: #91D6F1;margin-left: 35px;margin-top: 60px;"%>
+  <% end %>
+</div>

@@ -12,8 +12,8 @@
 #
 FactoryBot.define do
   factory :contact_information do
-    email_address { "MyString" }
-    address { "MyString" }
-    messenger_link { "MyString" }
+    email_address { 'MyString' }
+    address { 'MyString' }
+    messenger_link { 'MyString' }
   end
 end
