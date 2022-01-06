@@ -10,13 +10,12 @@ class HumanProfilesController < ApplicationController
 
   def create
     contact_information = ContactInformation.create(contact_information_params)
-    @params = human_profile_params.merge(contact_information_id: contact_information.id)
-    @human_profile = HumanProfile.new(@params)
+    @result = HumanProfiles::Create.new(contact_information, human_profile_params).call
     respond_to do |format|
-      if @human_profile.save
-        # current_user.profilable = @entity_profile
+      if @result
+        @human_profile = @result.human_profile
         format.html { redirect_to @human_profile, notice: 'Human profile was successfully created.' }
-        format.json { render :show, status: :created, location: @entity_profile }
+        format.json { render :show, status: :created, location: @human_profile }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @human_profile.errors, status: :unprocessable_entity }

@@ -10,11 +10,10 @@ class EntityProfilesController < ApplicationController
 
   def create
     contact_information = ContactInformation.create(contact_information_params)
-    @params = entity_profile_params.merge(contact_information_id: contact_information.id)
-    @entity_profile = EntityProfile.new(@params)
+    @result = EntityProfiles::Create.new(contact_information, entity_profile_params).call
     respond_to do |format|
-      if @entity_profile.save
-        # current_user.profilable = @entity_profile
+      if @result
+        @entity_profile = @result.entity_profile
         format.html { redirect_to @entity_profile, notice: 'Entity profile was successfully created.' }
         format.json { render :show, status: :created, location: @entity_profile }
       else
@@ -22,18 +21,6 @@ class EntityProfilesController < ApplicationController
         format.json { render json: @entity_profile.errors, status: :unprocessable_entity }
       end
     end
-    # contact_information = ContactInformation.create(contact_information_params)
-    # @result = EntityProfiles::Create.new(contact_information,entity_profile_params).call
-    # respond_to do |format|
-    #     if @result
-    #         @entity_profile = @result
-    #         format.html { redirect_to @entity_profile, notice: 'Entity profile was successfully created.' }
-    #         format.json { render :show, status: :created, location: @entity_profile }
-    #     else
-    #         format.html { render :new, status: :unprocessable_entity }
-    #         format.json { render json: @entity_profile.errors, status: :unprocessable_entity }
-    #     end
-    # end
   end
 
   def show; end
