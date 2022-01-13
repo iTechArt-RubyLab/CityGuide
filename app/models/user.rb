@@ -13,7 +13,6 @@
 #  is_admin               :boolean
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
-#  profilable_type        :string
 #  provider               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
@@ -23,12 +22,10 @@
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  profilable_id          :bigint
 #
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
-#  index_users_on_profilable            (profilable_type,profilable_id)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
@@ -36,7 +33,6 @@ class User < ApplicationRecord
   #  :lockable, :timeoutable,  and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :trackable, :omniauthable
-  belongs_to :profilable, polymorphic: true, optional: true
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
