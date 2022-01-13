@@ -1,7 +1,5 @@
 module Users
-    class UsersController < ApplicationController
-        def index
-
-        end
-    end
+  class UsersController < ApplicationController
+    def index; end
+  end
 end

@@ -14,7 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
     
       ## Rememberable
       t.datetime :remember_created_at
-      t.references :profilable, polymorphic: true
+
 
       t.string :uid 
       t.string :provider

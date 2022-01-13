@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  get 'users/form/index', to: 'users/users#index'
   devise_for :users, controllers: {
         sessions: 'users/sessions',
         registrations: 'users/registrations',
@@ -9,6 +8,5 @@ Rails.application.routes.draw do
         omniauth_callbacks: 'omniauth',
 
   }
-  resources :entity_profiles #plural
-  resources :human_profiles
+
 end

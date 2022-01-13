@@ -10,49 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_04_142104) do
+ActiveRecord::Schema.define(version: 2021_12_30_145942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "contact_informations", force: :cascade do |t|
-    t.string "phone_number"
-    t.string "email_address"
-    t.string "address"
-    t.string "messenger_link"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "entity_profiles", force: :cascade do |t|
-    t.string "name"
-    t.string "surname"
-    t.date "age"
-    t.text "note"
-    t.bigint "contact_information_id"
-    t.string "title_company"
-    t.float "min_price"
-    t.integer "min_time"
-    t.float "price_one_hour"
-    t.float "price_two_hours"
-    t.time "start_work"
-    t.time "end_work"
-    t.integer "type_of_service"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["contact_information_id"], name: "index_entity_profiles_on_contact_information_id"
-  end
-
-  create_table "human_profiles", force: :cascade do |t|
-    t.string "name"
-    t.string "surname"
-    t.date "age"
-    t.text "note"
-    t.bigint "contact_information_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["contact_information_id"], name: "index_human_profiles_on_contact_information_id"
-  end
 
   create_table "users", force: :cascade do |t|
     t.boolean "is_admin"
@@ -61,8 +22,6 @@ ActiveRecord::Schema.define(version: 2022_01_04_142104) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "profilable_type"
-    t.bigint "profilable_id"
     t.string "uid"
     t.string "provider"
     t.integer "sign_in_count", default: 0, null: false
@@ -77,7 +36,6 @@ ActiveRecord::Schema.define(version: 2022_01_04_142104) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["profilable_type", "profilable_id"], name: "index_users_on_profilable"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
