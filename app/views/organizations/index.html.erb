@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Organizations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Min price</th>
+      <th>Min time</th>
+      <th>Price one hour</th>
+      <th>Price two hours</th>
+      <th>Start work</th>
+      <th>End work</th>
+      <th>Type of services</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organizations.each do |organization| %>
+      <tr>
+        <td><%= organization.title %></td>
+        <td><%= organization.min_price %></td>
+        <td><%= organization.min_time %></td>
+        <td><%= organization.price_one_hour %></td>
+        <td><%= organization.price_two_hours %></td>
+        <td><%= organization.start_work %></td>
+        <td><%= organization.end_work %></td>
+        <td><%= organization.type_of_services %></td>
+        <td><%= organization.status %></td>
+        <td><%= link_to 'Show', organization %></td>
+        <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
+        <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Organization', new_organization_path %>
