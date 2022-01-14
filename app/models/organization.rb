@@ -14,8 +14,10 @@
 #  type_of_services :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  user_id          :integer
 #
 class Organization < ApplicationRecord
+  belongs_to :user
   enum type_of_services: %i[museum excursion transport hotel restaurant theaters entertainment]
   enum status: %i[approved pending unapproved archived]
 end
