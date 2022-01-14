@@ -1,0 +1,62 @@
+<%= form_with(model: organization) do |form| %>
+  <% if organization.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(organization.errors.count, "error") %> prohibited this organization from being saved:</h2>
+
+      <ul>
+        <% organization.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :min_price %>
+    <%= form.text_field :min_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :min_time %>
+    <%= form.number_field :min_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price_one_hour %>
+    <%= form.text_field :price_one_hour %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price_two_hours %>
+    <%= form.text_field :price_two_hours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_work %>
+    <%= form.time_select :start_work%>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_work %>
+    <%= form.time_select :end_work%>
+  </div>
+
+  <div class="field">
+    <%= form.label :type_of_services %>
+    <%= form.select :type_of_services,Organization.type_of_services.each{|type| type.first} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status,Organization.statuses.each{|type| type.first} %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

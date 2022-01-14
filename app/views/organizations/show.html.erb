@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @organization.title %>
+</p>
+
+<p>
+  <strong>Min price:</strong>
+  <%= @organization.min_price %>
+</p>
+
+<p>
+  <strong>Min time:</strong>
+  <%= @organization.min_time %>
+</p>
+
+<p>
+  <strong>Price one hour:</strong>
+  <%= @organization.price_one_hour %>
+</p>
+
+<p>
+  <strong>Price two hours:</strong>
+  <%= @organization.price_two_hours %>
+</p>
+
+<p>
+  <strong>Start work:</strong>
+  <%= @organization.start_work %>
+</p>
+
+<p>
+  <strong>End work:</strong>
+  <%= @organization.end_work %>
+</p>
+
+<p>
+  <strong>Type of services:</strong>
+  <%= @organization.type_of_services %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @organization.status %>
+</p>
+
+<%= link_to 'Edit', edit_organization_path(@organization) %> |
+<%= link_to 'Back', organizations_path %>
