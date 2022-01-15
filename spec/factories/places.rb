@@ -8,7 +8,11 @@
 #  name            :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  organization_id :integer
+#  organization_id :bigint
+#
+# Indexes
+#
+#  index_places_on_organization_id  (organization_id)
 #
 FactoryBot.define do
   factory :place do

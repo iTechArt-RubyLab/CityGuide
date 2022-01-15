@@ -4,7 +4,7 @@ class CreatePlaces < ActiveRecord::Migration[6.1]
       t.string :name
       t.decimal :latitude
       t.decimal :longitude
-
+      t.references :organization
       t.timestamps
     end
   end
