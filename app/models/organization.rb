@@ -19,5 +19,5 @@
 class Organization < ApplicationRecord
   belongs_to :user
   enum type_of_services: %i[museum excursion transport hotel restaurant theatre entertainment]
-  enum status: %i[approved pending unapproved archived]
+  enum status: %i[pending rejected approved archived]
 end
