@@ -14,7 +14,11 @@
 #  type_of_services :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  user_id          :integer
+#  user_id          :bigint
+#
+# Indexes
+#
+#  index_organizations_on_user_id  (user_id)
 #
 class Organization < ApplicationRecord
   belongs_to :user
