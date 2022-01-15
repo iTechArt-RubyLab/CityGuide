@@ -31,5 +31,6 @@ FactoryBot.define do
     end_work { "2022-01-14 22:10:09" }
     type_of_services { 1 }
     status { 1 }
+    user { nil }
   end
 end
