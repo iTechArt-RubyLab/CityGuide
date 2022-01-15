@@ -11,7 +11,7 @@
 #  surname       :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  user_id       :integer
+#  user_id       :integer          not null
 #
 FactoryBot.define do
   factory :profile do
@@ -21,5 +21,6 @@ FactoryBot.define do
     note { "MyText" }
     phone_number { "MyString" }
     email_address { "MyString" }
+    user { nil }
   end
 end
