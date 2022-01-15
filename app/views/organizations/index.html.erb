@@ -26,8 +26,8 @@
         <td><%= organization.min_time %></td>
         <td><%= organization.price_one_hour %></td>
         <td><%= organization.price_two_hours %></td>
-        <td><%= organization.start_work %></td>
-        <td><%= organization.end_work %></td>
+        <td><%= organization.start_work.strftime('%H:%M') %></td>
+        <td><%= organization.end_work.strftime('%H:%M')%></td>
         <td><%= organization.type_of_services %></td>
         <td><%= organization.status %></td>
         <td><%= link_to 'Show', organization %></td>
