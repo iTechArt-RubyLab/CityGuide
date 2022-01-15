@@ -14,12 +14,16 @@
 #  type_of_services :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  user_id          :integer
+#  user_id          :bigint
+#
+# Indexes
+#
+#  index_organizations_on_user_id  (user_id)
 #
 class Organization < ApplicationRecord
   belongs_to :user
   has_one :place
   accepts_nested_attributes_for :place
-  enum type_of_services: %i[museum excursion transport hotel restaurant theaters entertainment]
-  enum status: %i[approved pending unapproved archived]
+  enum type_of_services: %i[museum excursion transport hotel restaurant theatre entertainment]
+  enum status: %i[pending rejected approved archived]
 end
