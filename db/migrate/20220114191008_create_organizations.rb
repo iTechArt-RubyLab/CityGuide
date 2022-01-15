@@ -10,7 +10,7 @@ class CreateOrganizations < ActiveRecord::Migration[6.1]
       t.time :end_work
       t.integer :type_of_services
       t.integer :status
-
+      t.references :user
       t.timestamps
     end
   end
