@@ -19,5 +19,6 @@ FactoryBot.define do
     name { "MyString" }
     latitude { "9.99" }
     longitude { "9.99" }
+    organization { nil }
   end
 end
