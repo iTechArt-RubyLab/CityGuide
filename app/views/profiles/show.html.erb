@@ -1,5 +1,9 @@
 
 <p id="notice"><%= notice %></p>
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag @profile.avatar.variant(resize: '100x100!').processed%> 
+</p>
 
 <p>
   <strong>Name:</strong>
