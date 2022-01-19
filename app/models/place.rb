@@ -16,4 +16,5 @@
 #
 class Place < ApplicationRecord
   belongs_to :organization, optional: true
+  validates :name, length: { minimum: 5, maximum: 30 }, allow_blank: true
 end

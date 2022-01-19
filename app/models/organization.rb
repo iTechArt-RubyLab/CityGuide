@@ -22,4 +22,6 @@ class Organization < ApplicationRecord
   accepts_nested_attributes_for :place
   enum type_of_services: %i[museum excursion transport hotel restaurant theatre entertainment]
   enum status: %i[pending rejected approved archived]
+  validates_format_of :title, with: /^[a-zA-Z]+$/, multiline: true
+  validates :min_price, :price_one_hour, :price_two_hours, numericality: { greater_than_or_equal_to: 0 }
 end
