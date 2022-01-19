@@ -16,4 +16,10 @@
 class Profile < ApplicationRecord
   belongs_to :user
   has_one_attached :avatar
+  validates_format_of :name, with: /^[a-zA-Z]+$/, multiline: true
+  validates_format_of :surname, with: /^[a-zA-Z]+$/, multiline: true
+  validates :email_address, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates_format_of :phone_number,
+                      with: /\(?[0-9]{3}\)?-[0-9]{3}-[0-9]{4}/,
+                      message: '- Phone numbers must be in xxx-xxx-xxxx format.'
 end
