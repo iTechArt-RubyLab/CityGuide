@@ -1,8 +1,68 @@
+<% provide :head_tags do %>
+  <script>
+    function initMap2() {
+        var lat = document.getElementById('place_latitude').value;
+        var lng = document.getElementById('place_longitude').value;
+
+        // if not defined create default position
+        if (!lat || !lng){
+            lat=59.923468;
+            lng=30.386436;
+            document.getElementById('place_latitude').value = lat;
+            document.getElementById('place_longitude').value = lng;
+        }
+
+        var myCoords = new google.maps.LatLng(lat, lng);
+        var mapOptions = {
+            center: myCoords,
+            zoom: 14
+        };
+
+        var map = new google.maps.Map(document.getElementById('map2'), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: myCoords,
+            animation: google.maps.Animation.DROP,
+            map: map,
+            draggable: true
+        });
+
+        // refresh marker position and recenter map on marker
+        function refreshMarker(){
+            var lat = document.getElementById('place_latitude').value;
+            var lng = document.getElementById('place_longitude').value;
+            var myCoords = new google.maps.LatLng(lat, lng);
+            marker.setPosition(myCoords);
+            map.setCenter(marker.getPosition());
+        }
+        // when input values change call refreshMarker
+        document.getElementById('place_latitude').onchange = refreshMarker;
+        document.getElementById('place_longitude').onchange = refreshMarker;
+
+        // when marker is dragged update input values
+        marker.addListener('drag', function() {
+            latlng = marker.getPosition();
+            newlat=(Math.round(latlng.lat()*1000000))/1000000;
+            newlng=(Math.round(latlng.lng()*1000000))/1000000;
+            document.getElementById('place_latitude').value = newlat;
+            document.getElementById('place_longitude').value = newlng;
+        });
+
+        // When drag ends, center (pan) the map on the marker position
+        marker.addListener('dragend', function() {
+            map.panTo(marker.getPosition());
+        });
+    }
+  </script>
+  <meta name='turbolinks-visit-control' content='reload'>
+  <script>
+    document.addEventListener("DOMContentLoaded", initMap2);
+  </script>
+<% end %>
 <%= form_with(model: place) do |form| %>
   <% if place.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
-
       <ul>
         <% place.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,22 +70,23 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-
   <div class="field">
     <%= form.label :latitude %>
     <%= form.text_field :latitude %>
   </div>
-
   <div class="field">
     <%= form.label :longitude %>
     <%= form.text_field :longitude %>
   </div>
-
+  <center>
+  <p>
+    <div id="map2"></div>
+  </p>
+  </center>
   <div class="actions">
     <%= form.submit %>
   </div>
