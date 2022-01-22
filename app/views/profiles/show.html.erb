@@ -2,7 +2,13 @@
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Photo:</strong>
-  <%= image_tag @profile.avatar.variant(resize: '100x100!').processed%> 
+  <div class="circular_image">
+  <% if @profile.avatar.attached? %>
+   <%= image_tag @profile.avatar.variant(resize: '100x100!').processed%>
+  <% else %>
+    <%= image_tag("default.png", width: "100") %>
+  <% end %>
+  </div>
 </p>
 
 <p>
