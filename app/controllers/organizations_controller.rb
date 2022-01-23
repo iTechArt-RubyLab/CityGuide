@@ -65,7 +65,8 @@ class OrganizationsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def organization_params
     p = params.require(:organization).permit(:title, :min_price, :min_time, :price_one_hour, :price_two_hours,
-                                             :start_work, :end_work, :type_of_services, :status)
+                                             :start_work, :end_work, :type_of_services, :status,
+                                             place_attributes: %i[latitude longitude name])
     p[:type_of_services] = params[:organization][:type_of_services].to_i
     p[:status] = params[:organization][:status].to_i
     p
