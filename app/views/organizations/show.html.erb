@@ -1,3 +1,29 @@
+<script>
+function initMap(lat, lng) {
+    var myCoords = new google.maps.LatLng(lat, lng);
+    var mapOptions = {
+        center: myCoords,
+        zoom: 14
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    var marker = new google.maps.Marker({
+        position: myCoords,
+        map: map
+    });
+
+}
+</script>
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' content='reload'>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      
+      initMap(<%=@organization.place.latitude%>, <%=@organization.place.longitude%>)
+    });
+  </script>
+<% end %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -27,12 +53,12 @@
 
 <p>
   <strong>Start work:</strong>
-  <%= @organization.start_work %>
+  <%= @organization.start_work.strftime('%H:%M') %>
 </p>
 
 <p>
   <strong>End work:</strong>
-  <%= @organization.end_work %>
+  <%= @organization.end_work.strftime('%H:%M') %>
 </p>
 
 <p>
@@ -44,6 +70,27 @@
   <strong>Status:</strong>
   <%= @organization.status %>
 </p>
+
+<p>
+  <strong>Name place:</strong>
+  <%= @organization.place.name %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @organization.place.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @organization.place.longitude %>
+</p>
+
+<center>
+<p>
+    <div id="map"></div>
+</p>
+</center>
 
 <%= link_to 'Edit', edit_organization_path(@organization) %> |
 <%= link_to 'Back', organizations_path %>
