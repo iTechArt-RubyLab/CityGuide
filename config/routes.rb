@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :organizations
   resources :profiles
   root to: 'home#index'
+  get 'main',to: 'main#index'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
