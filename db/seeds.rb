@@ -144,6 +144,61 @@ organizations = Organization.create!([
         {
             name: 'Bolshaya morskay st.,69A',latitude: 59.930012,longitude: 30.293546
         }
-    }
+    },
+    {
+        title: 'Peterhof',min_price: 19.3529,min_time: 180,price_one_hour: 19.3529,price_two_hours: 19.3529,start_work: '10:30',end_work: '18:00',type_of_services: 1,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Razvodnaya st.,2',latitude: 59.8861707,longitude: 29.9083259
+        }
+    },
+    {
+        title: 'Kazan Cathedral',min_price: 5.1608,min_time: 60,price_one_hour: 5.1608,price_two_hours: 5.1608,start_work: '09:00',end_work: '19:45',type_of_services: 1,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Kazan square,2',latitude: 59.934268,longitude: 30.324592
+        }
+    },
+    {
+        title: 'Royal village',min_price: 1.9098,min_time: 60,price_one_hour: 1.9098,price_two_hours: 1.9098,start_work: '9:00',end_work: '18:00',type_of_services: 1,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Sadovaya st.,7',latitude: 59.716949,longitude: 30.393938
+        }
+    },
+    {
+        title: 'River excursion',min_price: 6.3661,min_time: 60,price_one_hour: 6.3661,price_two_hours: 12.6,start_work: '00:00',end_work: '00:00',type_of_services: 1,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Embankment of the Fontanka River,44',latitude: 59.932463,longitude: 30.343147
+        }
+    },
+    {
+        title: 'Gatchina',min_price: 5.0929,min_time: 60,price_one_hour: 5.0929,price_two_hours: 10.1,start_work: '10:00',end_work: '18:00',type_of_services: 1,status: 2,user: users[3],
+        place_attributes:
+        {
+            name: 'Krasnoarmeysky avenue,1',latitude: 59.565267,longitude: 30.11081
+        }
+    },
+    {
+        title: 'Isakievsky cathedral',min_price: 5.0929,min_time: 60,price_one_hour: 5.0929,price_two_hours: 5.0929,start_work: '09:30',end_work: '18:00',type_of_services: 1,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Isakievskaya square,4',latitude: 59.934451,longitude: 30.305519
+        }
+    },
+    {
+        title: 'Scooter tour',min_price: 25.4645,min_time: 120,price_one_hour: 12.8,price_two_hours: 25.4645,start_work: '00:00',end_work: '00:00',type_of_services: 1,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Primorskaya metro station',latitude: 59.948319,longitude: 30.230539
+        }
+    },
+    {
+        title: 'Rooftop tour',min_price: 6.3661,min_time: 60,price_one_hour: 6.3661,price_two_hours: 12.6,start_work: '08:30',end_work: '22:00',type_of_services: 1,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Uprising square metro station',latitude: 59.931492,longitude: 30.360456
+        }
+    },
 ])
-
