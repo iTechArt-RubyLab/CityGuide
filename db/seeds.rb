@@ -432,4 +432,75 @@ organizations = Organization.create!([
             name: 'Efimova st.,2',latitude: 59.926518,longitude: 30.320593
         }
     },
+    {
+        title: 'White theatre',min_price: 5.98,min_time: 60,price_one_hour: 5.68,price_two_hours: 11.3,start_work: '09:00',end_work: '22:00',type_of_services: 5,status: 2,user: users[3],
+        place_attributes:
+        {
+            name: 'Kuznechny lane,5/2',latitude: 59.9270826,longitude: 30.3483289
+        }
+    },
+    {
+        title: 'Juventa theatre',min_price: 3.98,min_time: 60,price_one_hour: 3.68,price_two_hours: 7.3,start_work: '09:00',end_work: '22:00',type_of_services: 5,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'emb. Moika River,48',latitude: 59.934543,longitude: 30.319861
+        }
+    },
+    {
+        title: 'Mariinskii Opera House',min_price: 7.6,min_time: 60,price_one_hour: 7.6,price_two_hours: 15.2,start_work: '09:00',end_work: '22:00',type_of_services: 5,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Teatralnaya sq.,1',latitude: 59.92578,longitude: 30.296595
+        }
+    },
+    {
+        title: 'Alexandrinsky theatre',min_price: 5.2,min_time: 60,price_one_hour: 5.2,price_two_hours: 10.4,start_work: '09:00',end_work: '22:00',type_of_services: 5,status: 2,user: users[3],
+        place_attributes:
+        {
+            name: 'Ostrovskogo sq.,6',latitude: 59.932125,longitude: 30.336626
+        }
+    },
+    {
+        title: 'Grand Theatre of puppet',min_price: 8.3,min_time: 60,price_one_hour: 8.3,price_two_hours: 16.6,start_work: '09:00',end_work: '22:00',type_of_services: 5,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Nekrasova st.,10',latitude: 59.939036,longitude: 30.352051
+        }
+    },
+    {
+        title: 'St. Petersburg State Theater of Musical Comedy',min_price: 3.98,min_time: 60,price_one_hour: 3.68,price_two_hours: 7.3,start_work: '09:00',end_work: '22:00',type_of_services: 5,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Italian st.,13',latitude: 59.936349,longitude: 30.333018
+        }
+    },
+    {
+        title: 'Lensoviet Theater',min_price: 5.7,min_time: 60,price_one_hour: 5.7,price_two_hours: 11.4,start_work: '09:00',end_work: '22:00',type_of_services: 5,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Vladimirski avenue,12',latitude: 59.930189,longitude: 30.348232
+        }
+    },
+    {
+        title: 'Rain theatre',min_price: 3.98,min_time: 60,price_one_hour: 3.68,price_two_hours: 7.3,start_work: '09:00',end_work: '22:00',type_of_services: 5,status: 2,user: users[3],
+        place_attributes:
+        {
+            name: 'Embankment of the Fontanka River, 130',latitude: 59.917726,longitude: 30.304672
+        }
+    },
+    {
+        title: 'Theatre of generations',min_price: 4.3,min_time: 60,price_one_hour: 4.3,price_two_hours: 8.6,start_work: '09:00',end_work: '22:00',type_of_services: 5,status: 2,user: users[3],
+        place_attributes:
+        {
+            name: 'Lahtinskaya st.,25a',latitude: 59.964253,longitude: 30.297301
+        }
+    },
+    {
+        title: 'October theatre',min_price: 3.98,min_time: 60,price_one_hour: 3.68,price_two_hours: 7.3,start_work: '09:00',end_work: '22:00',type_of_services: 5,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Ligovsky avenue,6',latitude: 59.935738,longitude: 30.364882
+        }
+    },
 ])
+
