@@ -244,84 +244,84 @@ organizations = Organization.create!([
         }
     },
     {
-        title: 'BookCase hostel',min_price: 15.2787,min_time: 720,price_one_hour: 15.2787,price_two_hours: 15.2787,start_work: '00:00',end_work: '00:00',type_of_services: 0,status: 2,user: users[3],
+        title: 'BookCase hostel',min_price: 15.2787,min_time: 720,price_one_hour: 15.2787,price_two_hours: 15.2787,start_work: '00:00',end_work: '00:00',type_of_services: 3,status: 2,user: users[3],
         place_attributes:
         {
             name: 'Chernyshevskogo avenue, 17,',latitude: 59.944559,longitude: 30.358226
         }
     },
     {
-        title: 'Gogol house hostel',min_price: 26.349,min_time: 720,price_one_hour: 26.349,price_two_hours: 26.349,start_work: '00:00',end_work: '00:00',type_of_services: 0,status: 2,user: users[3],
+        title: 'Gogol house hostel',min_price: 26.349,min_time: 720,price_one_hour: 26.349,price_two_hours: 26.349,start_work: '00:00',end_work: '00:00',type_of_services: 3,status: 2,user: users[3],
         place_attributes:
         {
             name: 'Embankment of the Griboedov Canal,69',latitude: 59.92624,longitude: 30.31384
         }
     },
     {
-        title: 'Margarita Hotel',min_price: 29,min_time: 720,price_one_hour: 29,price_two_hours: 29,start_work: '00:00',end_work: '00:00',type_of_services: 0,status: 2,user: users[3],
+        title: 'Margarita Hotel',min_price: 29,min_time: 720,price_one_hour: 29,price_two_hours: 29,start_work: '00:00',end_work: '00:00',type_of_services: 3,status: 2,user: users[3],
         place_attributes:
         {
             name: 'Srednya Podyacheskaya,14',latitude: 59.9251811,longitude: 30.3018358
         }
     },
     {
-        title: 'Bagration Hotel',min_price: 40.5,min_time: 720,price_one_hour: 40.5,price_two_hours: 40.5,start_work: '00:00',end_work: '00:00',type_of_services: 0,status: 2,user: users[4],
+        title: 'Bagration Hotel',min_price: 40.5,min_time: 720,price_one_hour: 40.5,price_two_hours: 40.5,start_work: '00:00',end_work: '00:00',type_of_services: 3,status: 2,user: users[4],
         place_attributes:
         {
             name: 'Sinopskaya embankment,66',latitude: 59.936114,longitude: 30.393816
         }
     },
     {
-        title: 'Alexandr Hotel',min_price: 20.3,min_time: 720,price_one_hour: 20.3,price_two_hours: 20.3,start_work: '00:00',end_work: '00:00',type_of_services: 0,status: 2,user: users[5],
+        title: 'Alexandr Hotel',min_price: 20.3,min_time: 720,price_one_hour: 20.3,price_two_hours: 20.3,start_work: '00:00',end_work: '00:00',type_of_services: 3,status: 2,user: users[5],
         place_attributes:
         {
             name: 'Stolyarny Lane,10/12',latitude: 59.927241,longitude: 30.312256
         }
     },
     {
-        title: 'Hotel Lopatin',min_price: 21,min_time: 720,price_one_hour: 21,price_two_hours: 21,start_work: '00:00',end_work: '00:00',type_of_services: 0,status: 2,user: users[3],
+        title: 'Hotel Lopatin',min_price: 21,min_time: 720,price_one_hour: 21,price_two_hours: 21,start_work: '00:00',end_work: '00:00',type_of_services: 3,status: 2,user: users[3],
         place_attributes:
         {
             name: 'Nevsky avenue,100',latitude: 59.931969,longitude: 30.355557
         }
     },
     {
-        title: 'Hotel Moscow',min_price: 36.2,min_time: 720,price_one_hour: 36.2,price_two_hours: 36.2,start_work: '00:00',end_work: '00:00',type_of_services: 0,status: 2,user: users[4],
+        title: 'Hotel Moscow',min_price: 36.2,min_time: 720,price_one_hour: 36.2,price_two_hours: 36.2,start_work: '00:00',end_work: '00:00',type_of_services: 3,status: 2,user: users[4],
         place_attributes:
         {
             name: 'sq. Alexander Nevsky, 2',latitude: 59.924552,longitude: 30.3863
         }
     },
     {
-        title: 'Hotel St Petersburg',min_price: 40,min_time: 720,price_one_hour: 40,price_two_hours: 40,start_work: '00:00',end_work: '00:00',type_of_services: 0,status: 2,user: users[3],
+        title: 'Hotel St Petersburg',min_price: 40,min_time: 720,price_one_hour: 40,price_two_hours: 40,start_work: '00:00',end_work: '00:00',type_of_services: 3,status: 2,user: users[3],
         place_attributes:
         {
             name: 'Pirogovskaya emb., 5/2',latitude: 59.931969,longitude: 30.355557
         }
     },
     {
-        title: 'Hotel gutenberg',min_price: 35.5,min_time: 720,price_one_hour: 35.5,price_two_hours: 35.5,start_work: '00:00',end_work: '00:00',type_of_services: 0,status: 2,user: users[5],
+        title: 'Hotel gutenberg',min_price: 35.5,min_time: 720,price_one_hour: 35.5,price_two_hours: 35.5,start_work: '00:00',end_work: '00:00',type_of_services: 3,status: 2,user: users[5],
         place_attributes:
         {
             name: 'Grazhdanskaya st.,13/15',latitude: 59.928293,longitude: 30.312614
         }
     },
     {
-        title: 'Aston Hotel',min_price: 42.5,min_time: 720,price_one_hour: 42.5,price_two_hours: 42.5,start_work: '00:00',end_work: '00:00',type_of_services: 0,status: 2,user: users[3],
+        title: 'Aston Hotel',min_price: 42.5,min_time: 720,price_one_hour: 42.5,price_two_hours: 42.5,start_work: '00:00',end_work: '00:00',type_of_services: 3,status: 2,user: users[3],
         place_attributes:
         {
             name: 'Vladimirsky avenue,5',latitude: 59.931263,longitude: 30.347505
         }
     },
     {
-        title: 'Marel Hotel',min_price: 48.5,min_time: 720,price_one_hour: 48.5,price_two_hours: 48.5,start_work: '00:00',end_work: '00:00',type_of_services: 0,status: 2,user: users[3],
+        title: 'Marel Hotel',min_price: 48.5,min_time: 720,price_one_hour: 48.5,price_two_hours: 48.5,start_work: '00:00',end_work: '00:00',type_of_services: 3,status: 2,user: users[3],
         place_attributes:
         {
             name: 'Nevsky avenue,102',latitude: 59.931961,longitude: 30.355862
         }
     },
     {
-        title: 'Orbit hotel',min_price: 29.5,min_time: 720,price_one_hour: 29.5,price_two_hours: 29.5,start_work: '00:00',end_work: '00:00',type_of_services: 0,status: 2,user: users[4],
+        title: 'Orbit hotel',min_price: 29.5,min_time: 720,price_one_hour: 29.5,price_two_hours: 29.5,start_work: '00:00',end_work: '00:00',type_of_services: 3,status: 2,user: users[4],
         place_attributes:
         {
             name: 'Nepokoryennyh avenue,4',latitude: 59.997905,longitude: 30.370139
