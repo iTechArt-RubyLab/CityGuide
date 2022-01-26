@@ -201,4 +201,47 @@ organizations = Organization.create!([
             name: 'Uprising square metro station',latitude: 59.931492,longitude: 30.360456
         }
     },
+    {
+        title: 'Baltic railway station',min_price: 2.9284,min_time: 60,price_one_hour: 2.9284,price_two_hours: 5.6,start_work: '00:00',end_work: '00:00',type_of_services: 2,status: 2,user: users[3],
+        place_attributes:
+        {
+            latitude: 59.906813,longitude: 30.2987
+        }
+    },
+    {
+        title: 'Vitebsk railway station',min_price: 25.4645,min_time: 180,price_one_hour: 25.4645,price_two_hours: 25.4645,start_work: '00:00',end_work: '00:00',type_of_services: 2,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Zagorodny prospect,52',latitude: 59.9196753,longitude: 30.327311
+        }
+    },
+    {
+        title: 'Ladoga railway station',min_price: 12.7323,min_time: 180,price_one_hour: 12.7323,price_two_hours: 12.7323,start_work: '00:00',end_work: '00:00',type_of_services: 2,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Buharetskaya st.,23',latitude: 59.934172,longitude: 30.441598
+        }
+    },
+    {
+        title: 'River Station',min_price: 11.459,min_time: 180,price_one_hour: 11.459,price_two_hours: 11.459,start_work: '00:00',end_work: '00:00',type_of_services: 2,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Obuhovskoy oborony avenue,195',latitude: 59.86838,longitude: 30.464149
+        }
+    },
+    {
+        title: 'Central Bus Station',min_price: 8.9126,min_time: 180,price_one_hour: 8.9126,price_two_hours: 8.9126,start_work: '00:00',end_work: '00:00',type_of_services: 2,status: 2,user: users[3],
+        place_attributes:
+        {
+            name: 'Embankment of the Obvodny Canal,38',latitude: 59.913439,longitude: 30.357939
+        }
+    },
+    {
+        title: 'Moscow railway station',min_price: 11.459,min_time: 180,price_one_hour: 11.459,price_two_hours: 11.459,start_work: '00:00',end_work: '00:00',type_of_services: 2,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Nevsky avenue,85',latitude: 59.929912,longitude: 30.362251
+        }
+    },
 ])
+
