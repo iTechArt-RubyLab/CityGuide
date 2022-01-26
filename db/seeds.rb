@@ -327,4 +327,109 @@ organizations = Organization.create!([
             name: 'Nepokoryennyh avenue,4',latitude: 59.997905,longitude: 30.370139
         }
     },
+    {
+        title: 'AMO CUCINARE',min_price: 3.4,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '09:00',end_work: '23:00',type_of_services: 4,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Bolshaya Konyushennaya st., 5',latitude: 59.940426,longitude: 30.323921
+        }
+    },
+    {
+        title: 'BIRCH',min_price: 2.3,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '09:00',end_work: '23:00',type_of_services: 4,status: 2,user: users[3],
+        place_attributes:
+        {
+            name: 'Kirochnaya st.,3',latitude: 59.943891,longitude: 30.350799
+        }
+    },
+    {
+        title: 'MINDAL CAFE',min_price: 4.3,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '09:00',end_work: '23:00',type_of_services: 4,status: 2,user: users[3],
+        place_attributes:
+        {
+            name: 'Angliskaya emb., 26',latitude: 59.934249,longitude: 30.294538
+        }
+    },
+    {
+        title: 'TERRASSA',min_price: 1.3,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '08:00',end_work: '00:00',type_of_services: 4,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Kazanskaya st.,3A',latitude: 59.933747,longitude: 30.32263
+        }
+    },
+    {
+        title: 'VINCENT',min_price: 6.3,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '09:00',end_work: '23:00',type_of_services: 4,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Teatralnya sq.,16',latitude: 59.924786,longitude: 30.297388
+        }
+    },
+    {
+        title: 'Cake&Breakfast',min_price: 0.8,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '08:00',end_work: '22:00',type_of_services: 4,status: 2,user: users[3],
+        place_attributes:
+        {
+            name: 'Manezhny lane,1/4',latitude: 59.939988,longitude: 30.317652
+        }
+    },
+    {
+        title: 'Flying Dutchman',min_price: 2.8,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '09:00',end_work: '23:00',type_of_services: 4,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Mytnintskaya emb.,6',latitude: 59.9478,longitude: 30.305674
+        }
+    },
+    {
+        title: 'BAHROMA',min_price: 2.4,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '12:30',end_work: '23:00',type_of_services: 4,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Doblesty st.,35',latitude: 59.848955,longitude: 30.174946
+        }
+    },
+    {
+        title: 'Bona Capona',min_price: 4.4,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '10:30',end_work: '23:00',type_of_services: 4,status: 2,user: users[3],
+        place_attributes:
+        {
+            name: 'Komendansky avenue,2',latitude: 60.001318,longitude: 30.26572
+        }
+    },
+    {
+        title: 'Villa ZimaЛeto',min_price: 1.4,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '09:30',end_work: '23:00',type_of_services: 4,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Juzhnaja st.,8',latitude: 59.968328,longitude: 30.237074
+        }
+    },
+    {
+        title: 'Harvest',min_price: 2.9,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '12:30',end_work: '23:00',type_of_services: 4,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Dobrolubova avenue,11',latitude: 59.949521,longitude: 30.301668
+        }
+    },
+    {
+        title: 'Italy',min_price: 1.76,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '12:30',end_work: '23:00',type_of_services: 4,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Bolshaya morskaya st.,14',latitude: 59.935946,longitude: 30.317528
+        }
+    },
+    {
+        title: 'Jangle Cafe',min_price: 0.76,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '08:30',end_work: '23:00',type_of_services: 4,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Griboedova,18-20',latitude: 59.934239,longitude: 30.326879
+        }
+    },
+    {
+        title: 'Schengen',min_price: 1.76,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '09:00',end_work: '23:00',type_of_services: 4,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Kirochnaya st.,5',latitude: 59.943852,longitude: 30.35237
+        }
+    },
+    {
+        title: 'Barashki',min_price: 2.98,min_time: 0,price_one_hour: 0,price_two_hours: 0,start_work: '09:00',end_work: '23:00',type_of_services: 4,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Efimova st.,2',latitude: 59.926518,longitude: 30.320593
+        }
+    },
 ])
