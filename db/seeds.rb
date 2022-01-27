@@ -578,5 +578,40 @@ organizations = Organization.create!([
         {
             name: 'Zverinskaya st.,13/5',latitude: 59.953355,longitude: 30.292637
         }
+    },
+    {
+        title: 'Excursion bureau Parus',min_price: 20,min_time: 20,price_one_hour: 20,price_two_hours: 20,start_work: '09:30',end_work: '22:00',type_of_services: 7,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Vosstanya st.,1',latitude: 59.931616,longitude: 30.360751
+        }
+    },
+    {
+        title: 'Seven seas',min_price: 25,min_time: 20,price_one_hour: 25,price_two_hours: 25,start_work: '09:30',end_work: '19:00',type_of_services: 7,status: 2,user: users[3],
+        place_attributes:
+        {
+            name: 'Bolshaya Pushkarskaya st.,41',latitude: 59.963227,longitude: 30.31107
+        }
+    },
+    {
+        title: 'Volkin SPB',min_price: 15,min_time: 15,price_one_hour: 15,price_two_hours: 15,start_work: '09:30',end_work: '19:00',type_of_services: 7,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Nevsky avenue,85',latitude: 59.930188,longitude: 30.362052
+        }
+    },
+    {
+        title: 'Atis Tour',min_price: 30,min_time: 20,price_one_hour: 30,price_two_hours: 30,start_work: '09:00',end_work: '20:00',type_of_services: 7,status: 2,user: users[3],
+        place_attributes:
+        {
+            name: 'Nevsky avenue,88',latitude: 59.932366,longitude: 30.351971
+        }
+    },
+    {
+        title: 'Central Bureau of Travel and Excursions',min_price: 20,min_time: 15,price_one_hour: 20,price_two_hours: 20,start_work: '09:00',end_work: '20:00',type_of_services: 7,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Bolshaya Konushennaya st.,27',latitude: 59.937107,longitude: 30.322305
+        }
     }
 ])
