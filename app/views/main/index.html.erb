@@ -1,1 +1,7 @@
-<%= link_to 'list of organizations',organizations_path %>
+<div class="container">
+  <h3>Search:</h3>
+  <form action="<%= organizations_path %>">
+    <input type="text" placeholder="organization?" name="search_key">
+    <button type="submit">Search</button>
+  </form>
+  <%= link_to 'list of organizations',organizations_path %>
