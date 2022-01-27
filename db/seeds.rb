@@ -10,7 +10,24 @@ users = User.create!([{ is_admin: true, email: 'admin1@gmail.com', password: '12
                       { is_admin: true, email: 'admin3@gmail.com', password: 'abcdef' },
                       { is_admin: false, email: 'ivanivanov@gmail.com', password: 'abcdefght' },
                       { is_admin: false, email: 'testuser@gmail.com', password: '123456' },
-                      { is_admin: false, email: 'jhonklin@gmail.com', password: '987654321' }])
+                      { is_admin: false, email: 'yurapetrov@gmail.com', password: '1234567aaa' },
+                      { is_admin: false, email: 'nadyatravel@gmail.com', password: 'abcde1234' },
+                      { is_admin: false, email: 'user2003@gmail.com', password: 'abgvg1234' }])
+profiles = Profile.create!([{ name: 'Sergey', surname: 'Sidorov', birthday: '02-10-1999', phone_number: '029-666-8977', email_address: 'sergeysid@mail.ru', user: users[0] },
+                            { name: 'Kate', surname: 'Popova', birthday: '06-12-1999', phone_number: '029-123-6789',
+                              email_address: 'katepopova@mail.ru', user: users[1] },
+                            { name: 'Julia', surname: 'Nekrasova', birthday: '22-08-2000', phone_number: '033-789-8977',
+                              email_address: 'juliaaa@mail.ru', user: users[2] },
+                            { name: 'Ivan', surname: 'Ivanov', birthday: '14-04-1999', phone_number: '029-987-8966',
+                              email_address: 'ivanivanov@mail.ru', user: users[3] },
+                            { name: 'Vlad', surname: 'Sidorov', birthday: '02-10-1999', phone_number: '029-456-8977',
+                              email_address: 'vladsidarov@mail.ru', user: users[4] },
+                            { name: 'Yuri', surname: 'Petrov', birthday: '10-10-1980', phone_number: '029-432-7808',
+                              email_address: 'yurapetrov@mail.ru', user: users[5] },
+                            { name: 'Nadya', surname: 'Mamontova', birthday: '12-10-1977', phone_number: '029-341-4859',
+                              email_address: 'nadyatravel@mail.ru', user: users[6] },
+                            { name: 'Kolya', surname: 'Sidorov', birthday: '13-10-1995', phone_number: '029-765-7654',
+                              email_address: 'kolyasid@mail.ru', user: users[7] }])
 organizations = Organization.create!([
                                        {
                                          title: 'Winter palace', min_price: 12.9, min_time: 90, price_one_hour: 12.9, price_two_hours: 12.9, start_work: '10:30', end_work: '18:00', type_of_services: 0, status: 2, user: users[3],
