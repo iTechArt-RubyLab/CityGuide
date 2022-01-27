@@ -502,5 +502,81 @@ organizations = Organization.create!([
             name: 'Ligovsky avenue,6',latitude: 59.935738,longitude: 30.364882
         }
     },
+    {
+        title: 'Divo Ostrov',min_price: 1.25,min_time: 10,price_one_hour: 25,price_two_hours: 50,start_work: '11:00',end_work: '22:00',type_of_services: 6,status: 2,user: users[3],
+        place_attributes:
+        {
+            name: 'Kemskaya st.,1A',latitude: 59.972206,longitude: 30.254857
+        }
+    },
+    {
+        title: 'Gagarin park',min_price: 1.5,min_time: 10,price_one_hour: 30,price_two_hours: 60,start_work: '11:00',end_work: '22:00',type_of_services: 6,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Kuznetsovskaya st.,25',latitude: 59.867116,longitude: 30.335121
+        }
+    },
+    {
+        title: 'Ice rink',min_price: 6.3,min_time: 60,price_one_hour: 6.3,price_two_hours: 12.6,start_work: '09:00',end_work: '22:00',type_of_services: 6,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Potemkinskaya st.,4A',latitude: 59.946521,longitude: 30.368167
+        }
+    },
+    {
+        title: 'Aquapark peterland',min_price: 18.6,min_time: 60,price_one_hour: 18.6,price_two_hours: 37.2,start_work: '09:00',end_work: '23:00',type_of_services: 6,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Primorsky avenue,72',latitude: 59.98165,longitude: 30.210621
+        }
+    },
+    {
+        title: 'Park New Holland',min_price: 0,min_time: 20,price_one_hour: 0,price_two_hours: 0,start_work: '00:00',end_work: '00:00',type_of_services: 6,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'emb. Admiralty Canal,2/4',latitude: 59.929748,longitude: 30.289258
+        }
+    },
+    {
+        title: 'Alexander Garden',min_price: 0,min_time: 15,price_one_hour: 0,price_two_hours: 0,start_work: '00:00',end_work: '00:00',type_of_services: 6,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Admiralty avenue,12',latitude: 59.93551,longitude: 30.305437
+        }
+    },
+    {
+        title: 'Summer Garden',min_price: 0,min_time: 15,price_one_hour: 0,price_two_hours: 0,start_work: '00:00',end_work: '00:00',type_of_services: 6,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'emb. Swan Canal',latitude: 59.944968,longitude: 30.33522
+        }
+    },
+    {
+        title: 'Draw bridges',min_price: 0,min_time: 20,price_one_hour: 0,price_two_hours: 0,start_work: '1:30',end_work: '04:30',type_of_services: 6,status: 2,user: users[3],
+        place_attributes:
+        {
+            name: 'Palace bridge',latitude: 59.941195,longitude: 30.308162
+        }
+    },
+    {
+        title: 'Trampoline center',min_price: 5.0,min_time: 30,price_one_hour: 10,price_two_hours: 20,start_work: '09:30',end_work: '23:30',type_of_services: 6,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Zverinskaya st.,13/5',latitude: 59.953355,longitude: 30.292637
+        }
+    },
+    {
+        title: 'Mirror mize smile park',min_price: 3.5,min_time: 15,price_one_hour: 14,price_two_hours: 28,start_work: '09:30',end_work: '23:30',type_of_services: 6,status: 2,user: users[5],
+        place_attributes:
+        {
+            name: 'Nevsky avenue,3',latitude: 59.936863,longitude: 30.312395
+        }
+    },
+    {
+        title: 'Trampoline center',min_price: 5.0,min_time: 30,price_one_hour: 10,price_two_hours: 20,start_work: '09:30',end_work: '23:30',type_of_services: 6,status: 2,user: users[4],
+        place_attributes:
+        {
+            name: 'Zverinskaya st.,13/5',latitude: 59.953355,longitude: 30.292637
+        }
+    }
 ])
-
