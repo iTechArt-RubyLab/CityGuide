@@ -1,5 +1,5 @@
 class AllPlacesController < ApplicationController
   def index
-    @organizations = Organization.all
+    @organizations = Organization.where('status = ?', 2)
   end
 end
