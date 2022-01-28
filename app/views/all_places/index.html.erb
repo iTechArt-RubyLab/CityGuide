@@ -1,0 +1,50 @@
+<script type="text/javascript">
+  function initMap3(){
+    var infoOrganizations=[
+        <% @organizations.each do |organization| %>
+            "<%='title:'+organization.title.to_s+',minimal price:'+organization.min_price.to_s+',address:'+organization.place.name.to_s%>",
+      <% end %>
+    ];
+    var organizations = [
+      <% @organizations.each do |organization| %>
+        {lat:<%= organization.place.latitude %>, lng:<%= organization.place.longitude %> },
+      <% end %>
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map3'),{
+      zoom: 10,
+      center: new google.maps.LatLng(59.923468, 30.386436),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    let infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < organizations.length; i++) {
+      console.log(organizations[i])
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(organizations[i]),
+        map: map,
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+          infowindow.setContent(infoOrganizations[i]);
+          infowindow.open(map3, marker);
+        }
+      })(marker, i));
+      
+
+    }
+  }
+</script>
+<meta name='turbolinks-visit-control' content='reload'>
+<script>
+  document.addEventListener("DOMContentLoaded", initMap3);
+</script>
+<center>
+<p>
+  <div id="map3"></div>
+</p>
+</center>
