@@ -23,6 +23,7 @@
 class Organization < ApplicationRecord
   belongs_to :user
   has_one :place
+  has_one :route
   accepts_nested_attributes_for :place
   enum type_of_services: %i[museum excursion transport hotel restaurant theatre entertainment tourist_agency]
   enum status: %i[pending rejected approved archived]
