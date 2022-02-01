@@ -7,8 +7,6 @@ class CreateRoutes < ActiveRecord::Migration[6.1]
       t.date :start_end
       t.references :hotel, null: false, foreign_key: {to_table: :organizations}
       t.decimal :cost
-      t.references :place, null: false, foreign_key: true
-
       t.timestamps
     end
   end

@@ -13,10 +13,12 @@ class RoutesController < ApplicationController
   # GET /routes/new
   def new
     @route = Route.new
+    @places=Place.all
   end
 
   # GET /routes/1/edit
   def edit
+    @places=Place.all
   end
 
   # POST /routes or /routes.json
@@ -65,6 +67,6 @@ class RoutesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def route_params
-      params.require(:route).permit(:tour_agency_id, :visitor_id, :start_date, :start_end, :hotel_id, :cost, :place_id)
+      params.require(:route).permit(:tour_agency_id, :visitor_id, :start_date, :start_end, :hotel_id, :cost, :place_ids=>[])
     end
 end
