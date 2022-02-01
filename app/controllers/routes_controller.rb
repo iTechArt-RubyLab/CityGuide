@@ -21,7 +21,7 @@ class RoutesController < ApplicationController
 
   # POST /routes or /routes.json
   def create
-    @route = current_user.routes.build(route_params)
+    @route = Route.new(route_params)
 
     respond_to do |format|
       if @route.save
@@ -65,6 +65,6 @@ class RoutesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def route_params
-      params.require(:route).permit(:tour_agency_id, :user_id, :start_date, :start_end, :hotel_id, :cost, :place_id)
+      params.require(:route).permit(:tour_agency_id, :visitor_id, :start_date, :start_end, :hotel_id, :cost, :place_id)
     end
 end
