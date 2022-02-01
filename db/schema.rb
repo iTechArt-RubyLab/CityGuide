@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_17_195110) do
+ActiveRecord::Schema.define(version: 2022_02_01_215659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,15 @@ ActiveRecord::Schema.define(version: 2022_01_17_195110) do
     t.index ["organization_id"], name: "index_places_on_organization_id"
   end
 
+  create_table "places_routes", force: :cascade do |t|
+    t.bigint "route_id", null: false
+    t.bigint "place_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["place_id"], name: "index_places_routes_on_place_id"
+    t.index ["route_id"], name: "index_places_routes_on_route_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "name"
     t.string "surname"
@@ -79,6 +88,20 @@ ActiveRecord::Schema.define(version: 2022_01_17_195110) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+  end
+
+  create_table "routes", force: :cascade do |t|
+    t.bigint "tour_agency_id", null: false
+    t.bigint "visitor_id", null: false
+    t.date "start_date"
+    t.date "start_end"
+    t.bigint "hotel_id", null: false
+    t.decimal "cost"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hotel_id"], name: "index_routes_on_hotel_id"
+    t.index ["tour_agency_id"], name: "index_routes_on_tour_agency_id"
+    t.index ["visitor_id"], name: "index_routes_on_visitor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -107,4 +130,9 @@ ActiveRecord::Schema.define(version: 2022_01_17_195110) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "places_routes", "places"
+  add_foreign_key "places_routes", "routes"
+  add_foreign_key "routes", "organizations", column: "hotel_id"
+  add_foreign_key "routes", "organizations", column: "tour_agency_id"
+  add_foreign_key "routes", "users", column: "visitor_id"
 end
