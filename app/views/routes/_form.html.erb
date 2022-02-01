@@ -1,0 +1,49 @@
+<%= form_with(model: route) do |form| %>
+  <% if route.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(route.errors.count, "error") %> prohibited this route from being saved:</h2>
+
+      <ul>
+        <% route.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tour_agency_id %>
+    <%= form.collection_select :tour_agency_id,Organization.where(type_of_services: 7), :id, :title %>
+  </div>
+  <div class="field">
+    <%= form.hidden_field :visitor_id, value: current_user.id %>
+  </div>
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_select :start_date,start_year: 2022,end_year: 2023%>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_end %>
+    <%= form.date_select :start_end,start_year: 2022,end_year: 2023 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hotel_id %>
+    <%= form.collection_select :hotel_id,Organization.where(type_of_services: 3), :id, :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.text_field :cost %>
+  </div>
+
+  <div class="field">
+    <h5>Places</h5>
+    <%= form.collection_check_boxes(:place_ids, Organization.where.not(type_of_services: [3,7]), :id, :title,{class: "form-select"}) %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

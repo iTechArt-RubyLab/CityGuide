@@ -16,5 +16,6 @@
 #
 class Place < ApplicationRecord
   belongs_to :organization, optional: true
+  has_and_belongs_to_many :routes
   validates :name, length: { minimum: 5, maximum: 50 }, allow_blank: true
 end
