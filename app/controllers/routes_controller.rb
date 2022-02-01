@@ -13,12 +13,10 @@ class RoutesController < ApplicationController
   # GET /routes/new
   def new
     @route = Route.new
-    @places=Place.all
   end
 
   # GET /routes/1/edit
   def edit
-    @places=Place.all
   end
 
   # POST /routes or /routes.json

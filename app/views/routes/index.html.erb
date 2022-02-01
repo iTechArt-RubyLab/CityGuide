@@ -19,13 +19,13 @@
   <tbody>
     <% @routes.each do |route| %>
       <tr>
-        <td><%= route.tour_agency_id %></td>
-        <td><%= route.visitor_id %></td>
+        <td><%= route.tour_agency.title %></td>
+        <td><%= route.visitor.profile.name %></td>
         <td><%= route.start_date %></td>
         <td><%= route.start_end %></td>
-        <td><%= route.hotel_id %></td>
+        <td><%= route.hotel.title %></td>
         <td><%= route.cost %></td>
-        <td><%= route.place_ids %></td>
+        <td><%= route.places.map{|i| i.organization.title }%></td>
         <td><%= link_to 'Show', route %></td>
         <td><%= link_to 'Edit', edit_route_path(route) %></td>
         <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>

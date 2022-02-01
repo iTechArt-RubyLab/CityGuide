@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Tour agency:</strong>
-  <%= @route.tour_agency_id %>
+  <%= @route.tour_agency.title %>
 </p>
 <p>
   <strong>Visitor:</strong>
-  <%= @route.visitor_id %>
+  <%= @route.visitor.profile.name %>
 </p>
 <p>
   <strong>Start date:</strong>
@@ -17,7 +17,7 @@
 </p>
 <p>
   <strong>Hotel:</strong>
-  <%= @route.hotel_id %>
+  <%= @route.hotel.title %>
 </p>
 <p>
   <strong>Cost:</strong>
@@ -25,7 +25,7 @@
 </p>
 <p>
   <strong>places:</strong>
-  <%= @route.place_ids %>
+  <%= @route.places.map{|i| i.organization.title }%>
 </p>
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>

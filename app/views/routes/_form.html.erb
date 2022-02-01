@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :tour_agency_id %>
-    <%= form.text_field :tour_agency_id %>
+    <%= form.collection_select :tour_agency_id,Organization.where(type_of_services: 7), :id, :title %>
   </div>
   <div class="field">
     <%= form.hidden_field :visitor_id, value: current_user.id %>
@@ -30,7 +30,7 @@
 
   <div class="field">
     <%= form.label :hotel_id %>
-    <%= form.text_field :hotel_id %>
+    <%= form.collection_select :hotel_id,Organization.where(type_of_services: 3), :id, :title %>
   </div>
 
   <div class="field">
@@ -39,8 +39,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :place_ids %>
-     <%= form.collection_select :place_ids, @places, :id, :name, {}, {:multiple => true} %>
+    <h5>Places</h5>
+    <%= form.collection_check_boxes(:place_ids, Organization.where.not(type_of_services: [3,7]), :id, :title,{class: "form-select"}) %>
   </div>
   
   <div class="actions">
