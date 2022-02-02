@@ -1,8 +1,9 @@
 <div class="container">
-  <h3>Search:</h3>
-  <form action="<%= organizations_path %>">
-    <input type="text" placeholder="organization?" name="search_key">
-    <button type="submit">Search</button>
-  </form>
-  <%= link_to 'map with all organizations', all_places_path, method: :get %></br>
-  <%= link_to 'list of organizations', organizations_path %>
+  <div class="row">
+    <div class="col-sm-5">
+      <%= render 'routes/form', route: @route%>
+    </div>
+  </div>
+</div>
+<%= link_to 'map with all organizations', all_places_path, method: :get %></br>
+<%= link_to 'list of organizations', organizations_path %>
