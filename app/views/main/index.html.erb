@@ -1,3 +1,9 @@
-<%= render 'routes/form', route: @route %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+      <%= render 'routes/form', route: @route%>
+    </div>
+  </div>
+</div>
 <%= link_to 'map with all organizations', all_places_path, method: :get %></br>
 <%= link_to 'list of organizations', organizations_path %>
