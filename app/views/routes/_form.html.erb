@@ -41,7 +41,14 @@
 
   <div class="field">
     <h5>Places</h5>
-    <%= form.collection_check_boxes(:place_ids, Organization.where.not(type_of_services: [3,7]), :id, :title,{class: "form-select"}) %>
+    <%= form.collection_check_boxes(:place_ids, Organization.where.not(type_of_services: [3,7]), :id, :title,) do |place| %>
+      <ul style="list-style-type:none;">
+        <li>
+          <%= place.check_box %>
+          <%= place.label %>
+        </li>
+      </ul>
+    <% end %>
   </div>
   
   <div class="actions">
