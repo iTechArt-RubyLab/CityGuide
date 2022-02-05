@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_215659) do
     t.date "end_date"
     t.bigint "hotel_id", null: false
     t.decimal "cost"
+    t.string "mode_of_transport"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["hotel_id"], name: "index_routes_on_hotel_id"

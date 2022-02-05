@@ -42,7 +42,7 @@
       destination: destination,
       waypoints: waypts,
       optimizeWaypoints: true,
-      travelMode: google.maps.TravelMode.DRIVING,
+      travelMode: google.maps.TravelMode.<%= @route.mode_of_transport %>,
     })
     .then((result) => {
       display.setDirections(result);
@@ -103,6 +103,10 @@
 <p>
   <strong>places:</strong>
   <%= @route.places.map{|i| i.organization.title }%>
+</p>
+<p>
+  <strong>Mode of transport:</strong>
+  <%= @route.mode_of_transport%>
 </p>
 <center>
   <p>

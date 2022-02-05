@@ -29,11 +29,15 @@
     <%= form.label :hotel_id %>
     <%= form.collection_select :hotel_id,Organization.where(type_of_services: 3), :id, :title %>
   </div>
-  <div class="field" id="waypoints">
+  <div class="field">
     <h5>Places</h5>
     <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br />
     <%= form.collection_select(:place_ids, Organization.where.not(type_of_services: [3,7]), :id, :title, {} ,{:multiple => true}) %>
   </select>
+  <div class="field">
+  <b>Mode of Travel: </b>
+      <%= form.select :mode_of_transport,[["DRIVING", "DRIVING"], ["WALKING", "WALKING"]] %>
+  </div>
 </div>
 <br />
 <div class="actions">
