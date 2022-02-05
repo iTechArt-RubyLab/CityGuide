@@ -1,5 +1,5 @@
 <script>
-  function initMap5() {
+  function initMap4() {
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 6,
     center: { lat: 59.923468, lng: 30.386436},
@@ -71,11 +71,10 @@
   <meta name='turbolinks-visit-control' content='reload'>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
-      initMap5()
+      initMap4()
     });
   </script>
 <% end %>
-<p id="notice"><%= notice %></p>
 <p>
   <strong>Tour agency:</strong>
   <%= @route.tour_agency.title %>
@@ -97,7 +96,7 @@
   <%= @route.hotel.title %>
 </p>
 <p>
-  <strong>Cost:</strong>
+  <strong>Cost($):</strong>
   <%= @route.cost %>
 </p>
 <p>
