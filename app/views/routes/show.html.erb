@@ -28,12 +28,13 @@
 
   var places = [ <%= @route.places.map{|i| i.organization.place.latitude} %>,<%= @route.places.map{|i| i.organization.place.longitude} %>] ;
   var waypts = [];
-  for (var i = 0; i < places.length ; i++) {
+  for (var i = 0; i < places[0].length ; i++) {
   waypts.push({
-     location:new google.maps.LatLng(places[0][i], places[1][i]),
+     location:new google.maps.LatLng(places[0][i],places[1][i]),
      stopover:true
   });
   };
+  console.log(waypts)
   function displayRoute(origin, destination, service, display) {
   service
     .route({
