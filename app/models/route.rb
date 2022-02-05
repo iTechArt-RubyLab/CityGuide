@@ -4,8 +4,8 @@
 #
 #  id             :bigint           not null, primary key
 #  cost           :decimal(, )
+#  end_date       :date
 #  start_date     :date
-#  start_end      :date
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  hotel_id       :bigint           not null
