@@ -35,13 +35,12 @@
     <%= form.collection_select(:place_ids, Organization.where.not(type_of_services: [3,7]), :id, :title, {} ,{:multiple => true}) %>
   </select>
   <div class="field">
-  <b>Mode of Travel: </b>
-      <%= form.select :mode_of_transport,[["DRIVING", "DRIVING"], ["WALKING", "WALKING"]] %>
+    <b>Mode of Travel: </b>
+    <%= form.select :mode_of_transport,[["DRIVING", "DRIVING"], ["WALKING", "WALKING"]] %>
   </div>
-</div>
-<br />
-<div class="actions">
-  <%= form.submit :class=> "btn btn-primary",style: "background-color: #91D6F1;"%>
-</div>
-</div>
+  <br />
+  <div class="actions">
+    <%= form.submit :class=> "btn btn-primary",style: "background-color: #91D6F1;"%>
+  </div>
+  </div>
 <% end %>
