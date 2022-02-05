@@ -590,13 +590,6 @@ organizations = Organization.create!([
                                            }
                                        },
                                        {
-                                         title: 'Trampoline center', min_price: 5.0, min_time: 30, price_one_hour: 10, price_two_hours: 20, start_work: '09:30', end_work: '23:30', type_of_services: 6, status: 2, user: users[4],
-                                         place_attributes:
-                                           {
-                                             name: 'Zverinskaya st.,13/5', latitude: 59.953355, longitude: 30.292637
-                                           }
-                                       },
-                                       {
                                          title: 'Excursion bureau Parus', min_price: 20, min_time: 20, price_one_hour: 20, price_two_hours: 20, start_work: '09:30', end_work: '22:00', type_of_services: 7, status: 2, user: users[5],
                                          place_attributes:
                                            {
@@ -632,3 +625,6 @@ organizations = Organization.create!([
                                            }
                                        }
                                      ])
+for i in 0..organizations.size-1 do
+   organizations[i].images.attach(io: File.open(File.join(Rails.root, "/app/assets/images/#{i}.png")), filename: "#{i}.png")
+end
