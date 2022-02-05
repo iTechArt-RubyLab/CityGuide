@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_215659) do
     t.bigint "tour_agency_id", null: false
     t.bigint "visitor_id", null: false
     t.date "start_date"
-    t.date "start_end"
+    t.date "end_date"
     t.bigint "hotel_id", null: false
     t.decimal "cost"
     t.datetime "created_at", precision: 6, null: false
