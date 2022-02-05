@@ -29,4 +29,14 @@ class Route < ApplicationRecord
   belongs_to :visitor, class_name: 'User'
   belongs_to :hotel, class_name: 'Organization'
   has_and_belongs_to_many :places
+  
+  before_create do
+    self.cost = calculate_cost
+  end
+
+  def calculate_cost
+    sum = self.tour_agency.min_price + self.hotel.min_price
+    self.places.map{ |place| sum += place.organization.min_price }
+    sum.round(2)
+  end
 end

@@ -3,7 +3,6 @@
   <% if route.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(route.errors.count, "error") %> prohibited this route from being saved:</h2>
-
       <ul>
         <% route.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= form.label :tour_agency_id %>
     <%= form.collection_select :tour_agency_id,Organization.where(type_of_services: 7), :id, :title %>
@@ -23,35 +21,23 @@
     <%= form.label :start_date %>
     <%= form.date_select :start_date,start_year: 2022,end_year: 2023%>
   </div>
-
   <div class="field">
-    <%= form.label :start_end %>
+    <%= form.label :end_date %>
     <%= form.date_select :start_end,start_year: 2022,end_year: 2023 %>
   </div>
-
   <div class="field">
     <%= form.label :hotel_id %>
     <%= form.collection_select :hotel_id,Organization.where(type_of_services: 3), :id, :title %>
   </div>
-
-  <div class="field">
-    <%= form.label :cost %>
-    <%= form.text_field :cost %>
-  </div>
-
-  <div class="field">
+  <div class="field" id="waypoints">
     <h5>Places</h5>
-    <%= form.collection_check_boxes(:place_ids, Organization.where.not(type_of_services: [3,7]), :id, :title,) do |place| %>
-      <ul style="list-style-type:none;">
-        <li>
-          <%= place.check_box %>
-          <%= place.label %>
-        </li>
-      </ul>
-    <% end %>
-  </div>
-  
-  <div class="actions">
-     <%= form.submit :class=> "btn btn-primary",style: "background-color: #91D6F1;"%>
-  </div>
+    <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br />
+    <%= form.collection_select(:place_ids, Organization.where.not(type_of_services: [3,7]), :id, :title, {} ,{:multiple => true}) %>
+  </select>
+</div>
+<br />
+<div class="actions">
+  <%= form.submit :class=> "btn btn-primary",style: "background-color: #91D6F1;"%>
+</div>
+</div>
 <% end %>
