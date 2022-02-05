@@ -2,15 +2,16 @@
 #
 # Table name: routes
 #
-#  id             :bigint           not null, primary key
-#  cost           :decimal(, )
-#  end_date       :date
-#  start_date     :date
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  hotel_id       :bigint           not null
-#  tour_agency_id :bigint           not null
-#  visitor_id     :bigint           not null
+#  id                :bigint           not null, primary key
+#  cost              :decimal(, )
+#  end_date          :date
+#  mode_of_transport :string
+#  start_date        :date
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  hotel_id          :bigint           not null
+#  tour_agency_id    :bigint           not null
+#  visitor_id        :bigint           not null
 #
 # Indexes
 #

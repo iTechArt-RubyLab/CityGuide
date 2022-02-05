@@ -6,7 +6,7 @@
       <th>Tour agency</th>
       <th>Visitor</th>
       <th>Start date</th>
-      <th>Start end</th>
+      <th>End date</th>
       <th>Hotel</th>
       <th>Cost</th>
       <th>Place</th>
@@ -20,7 +20,7 @@
         <td><%= route.tour_agency.title %></td>
         <td><%= route.visitor.profile.name %></td>
         <td><%= route.start_date %></td>
-        <td><%= route.start_end %></td>
+        <td><%= route.end_date %></td>
         <td><%= route.hotel.title %></td>
         <td><%= route.cost %></td>
         <td><%= route.places.map{|i| i.organization.title }%></td>

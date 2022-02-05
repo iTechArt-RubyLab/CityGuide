@@ -28,12 +28,13 @@
 
   var places = [ <%= @route.places.map{|i| i.organization.place.latitude} %>,<%= @route.places.map{|i| i.organization.place.longitude} %>] ;
   var waypts = [];
-  for (var i = 0; i < places.length ; i++) {
+  for (var i = 0; i < places[0].length ; i++) {
   waypts.push({
-     location:new google.maps.LatLng(places[0][i], places[1][i]),
+     location:new google.maps.LatLng(places[0][i],places[1][i]),
      stopover:true
   });
   };
+  console.log(waypts)
   function displayRoute(origin, destination, service, display) {
   service
     .route({
@@ -41,7 +42,7 @@
       destination: destination,
       waypoints: waypts,
       optimizeWaypoints: true,
-      travelMode: google.maps.TravelMode.DRIVING,
+      travelMode: google.maps.TravelMode.<%= @route.mode_of_transport %>,
     })
     .then((result) => {
       display.setDirections(result);
@@ -88,8 +89,8 @@
   <%= @route.start_date %>
 </p>
 <p>
-  <strong>Start end:</strong>
-  <%= @route.start_end %>
+  <strong>End date:</strong>
+  <%= @route.end_date %>
 </p>
 <p>
   <strong>Hotel:</strong>
@@ -102,6 +103,10 @@
 <p>
   <strong>places:</strong>
   <%= @route.places.map{|i| i.organization.title }%>
+</p>
+<p>
+  <strong>Mode of transport:</strong>
+  <%= @route.mode_of_transport%>
 </p>
 <center>
   <p>
