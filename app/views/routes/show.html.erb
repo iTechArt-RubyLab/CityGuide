@@ -1,4 +1,80 @@
-<p id="notice"><%= notice %></p>
+<script>
+  function initMap4() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 6,
+    center: { lat: 59.923468, lng: 30.386436},
+  });
+  const directionsService = new google.maps.DirectionsService();
+  const directionsRenderer = new google.maps.DirectionsRenderer({
+    draggable: true,
+    map,
+    panel: document.getElementById("panel"),
+  });
+
+  directionsRenderer.addListener("directions_changed", () => {
+    const directions = directionsRenderer.getDirections();
+
+    if (directions) {
+      computeTotalDistance(directions);
+    }
+  });
+  displayRoute(
+    { lat: <%= @route.tour_agency.place.latitude %>, lng: <%= @route.tour_agency.place.longitude %> },
+    { lat: <%= @route.hotel.place.latitude %>, lng: <%= @route.hotel.place.longitude %> },
+    directionsService,
+    directionsRenderer
+  );
+  }
+
+  var places = [ <%= @route.places.map{|i| i.organization.place.latitude} %>,<%= @route.places.map{|i| i.organization.place.longitude} %>] ;
+  var waypts = [];
+  for (var i = 0; i < places.length ; i++) {
+  waypts.push({
+     location:new google.maps.LatLng(places[0][i], places[1][i]),
+     stopover:true
+  });
+  };
+  function displayRoute(origin, destination, service, display) {
+  service
+    .route({
+      origin: origin,
+      destination: destination,
+      waypoints: waypts,
+      optimizeWaypoints: true,
+      travelMode: google.maps.TravelMode.DRIVING,
+    })
+    .then((result) => {
+      display.setDirections(result);
+    })
+    .catch((e) => {
+      alert("Could not display directions due to: " + e);
+    });
+  }
+
+  function computeTotalDistance(result) {
+  let total = 0;
+  const myroute = result.routes[0];
+
+  if (!myroute) {
+    return;
+  }
+
+  for (let i = 0; i < myroute.legs.length; i++) {
+    total += myroute.legs[i].distance.value;
+  }
+
+  total = total / 1000;
+  document.getElementById("total").innerHTML = total + " km";
+  }
+</script>
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' content='reload'>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      initMap4()
+    });
+  </script>
+<% end %>
 <p>
   <strong>Tour agency:</strong>
   <%= @route.tour_agency.title %>
@@ -20,12 +96,20 @@
   <%= @route.hotel.title %>
 </p>
 <p>
-  <strong>Cost:</strong>
+  <strong>Cost($):</strong>
   <%= @route.cost %>
 </p>
 <p>
   <strong>places:</strong>
   <%= @route.places.map{|i| i.organization.title }%>
 </p>
+<center>
+  <p>
+    <div id="map"></div>
+  </p>
+  <p>Total Distance: <span id="total"></span></p>
+</div>
+</div>
+</center>
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>
