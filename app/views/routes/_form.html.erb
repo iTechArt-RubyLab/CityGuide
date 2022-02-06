@@ -1,3 +1,4 @@
+<p class="notice"><%= notice %></p>
 <% route=Route.new %>
 <%= form_with(model: route, local: true) do |form| %>
   <% if route.errors.any? %>
@@ -23,7 +24,7 @@
   </div>
   <div class="field">
     <%= form.label :end_date %>
-    <%= form.date_select :start_end,start_year: 2022,end_year: 2023 %>
+    <%= form.date_select :end_date,start_year: 2022,end_year: 2023 %>
   </div>
   <div class="field">
     <%= form.label :hotel_id %>
