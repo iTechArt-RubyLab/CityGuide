@@ -54,6 +54,7 @@ group :development, :test do
   gem 'rubocop-rake', require: false
   gem 'rubocop-rspec', require: false
   gem 'simplecov', require: false
+  gem 'validates_timeliness', '~> 6.0.0.beta2'
 end
 
 group :development do
