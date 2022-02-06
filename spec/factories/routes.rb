@@ -27,12 +27,24 @@
 #
 FactoryBot.define do
   factory :route do
-    tour_agency { nil }
-    user { nil }
-    start_date { "2022-01-28" }
-    start_end { "2022-01-28" }
-    hotel { nil }
-    cost { "9.99" }
-    place { nil }
+    association :hotel, factory: :organization
+    association :visitor, factory: :user
+    start_date { Faker::Time.between(from: DateTime.now, to: DateTime.now + 3) }
+    end_date { Faker::Time.between(from: start_date, to: DateTime.now + 4) }
+    cost { Faker::Number.within(range: 0.0..1000.0) }
+    mode_of_transport { 'DRIVING' }
+    association :tour_agency, factory: :organization
+    trait :invalid_start_date do
+      start_date { Faker::Time.between(from: DateTime.now - 4, to: DateTime.now - 1) }
+    end
+    trait :invalid_end_date do
+      end_date { Faker::Time.between(from: DateTime.now - 4, to: DateTime.now - 1) }
+    end
+    trait :invalid_negative_cost do
+      cost { Faker::Number.within(range: -10..-1) }
+    end
+    trait :invalid_big_cost do
+      cost { Faker::Number.within(range: 1001..2000) }
+    end
   end
 end
