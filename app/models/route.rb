@@ -30,14 +30,15 @@ class Route < ApplicationRecord
   belongs_to :visitor, class_name: 'User'
   belongs_to :hotel, class_name: 'Organization'
   has_and_belongs_to_many :places
-  
+  validates_date :start_date, on_or_after: -> { Date.current }
+  validates_date :end_date, on_or_after: :start_date
   before_create do
     self.cost = calculate_cost
   end
 
   def calculate_cost
-    sum = self.tour_agency.min_price + self.hotel.min_price
-    self.places.map{ |place| sum += place.organization.min_price }
+    sum = tour_agency.min_price + hotel.min_price
+    places.map { |place| sum += place.organization.min_price }
     sum.round(2)
   end
 end

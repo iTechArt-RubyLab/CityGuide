@@ -124,7 +124,7 @@ organizations = Organization.create!([
                                          title: 'Chaliapins house museum', min_price: 2.5804, min_time: 30, price_one_hour: 2.5804, price_two_hours: 2.5804, start_work: '10:00', end_work: '18:00', type_of_services: 0, status: 2, user: users[4],
                                          place_attributes:
                                            {
-                                             name: 'Novinsky boulevard,25', latitude: 55.756522, longitude: 37.583464
+                                             name: 'Graftio,2', latitude: 59.974151, longitude: 30.305649
                                            }
                                        },
                                        {

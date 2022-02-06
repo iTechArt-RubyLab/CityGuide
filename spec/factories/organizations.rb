@@ -22,15 +22,40 @@
 #
 FactoryBot.define do
   factory :organization do
-    title { "MyString" }
-    min_price { 1.5 }
-    min_time { 1 }
-    price_one_hour { 1.5 }
-    price_two_hours { 1.5 }
-    start_work { "2022-01-14 22:10:09" }
-    end_work { "2022-01-14 22:10:09" }
+    title { Faker::Lorem.characters(number: 20, min_alpha: 15) }
+    min_price { Faker::Number.within(range: 0.0..1000.0) }
+    min_time { Faker::Number.within(range: 0..2000) }
+    price_one_hour { Faker::Number.within(range: 0.0..1000.0) }
+    price_two_hours { Faker::Number.within(range: 0.0..1000.0) }
+    start_work { Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) }
+    end_work { Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) }
     type_of_services { 1 }
     status { 1 }
-    user { nil }
+    association :user
+
+    trait :invalid_short_title do
+      title { Faker::Lorem.characters(number: 1, min_alpha: 1) }
+    end
+    trait :invalid_long_title do
+      title { Faker::Lorem.characters(number: 80, min_alpha: 60, min_numeric: 10) }
+    end
+    trait :negative_min_price do
+      min_price { Faker::Number.within(range: -10..-1) }
+    end
+    trait :big_min_price do
+      min_price { Faker::Number.within(range: 1001..2000) }
+    end
+    trait :negative_price_one_hour do
+      price_one_hour { Faker::Number.within(range: -10..-1) }
+    end
+    trait :big_price_one_hour do
+      price_one_hour { Faker::Number.within(range: 1001..2000) }
+    end
+    trait :negative_price_two_hours do
+      price_two_hours { Faker::Number.within(range: -10..-1) }
+    end
+    trait :big_price_two_hours do
+      price_two_hours { Faker::Number.within(range: 1001..2000) }
+    end
   end
 end
