@@ -3,7 +3,11 @@ class RoutesController < ApplicationController
 
   # GET /routes or /routes.json
   def index
-    @routes = Route.all
+    if current_user.is_admin || current_user.organizations.count > 0
+      @routes=Route.all
+    else
+      @routes = Route.where(visitor_id: current_user.id)
+    end
   end
 
   # GET /routes/1 or /routes/1.json
