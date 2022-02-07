@@ -1,5 +1,5 @@
 class RoutesController < ApplicationController
-  before_action :set_route, only: %i[ show edit update destroy ]
+  before_action :set_route, only: %i[ show edit update destroy approve]
 
   # GET /routes or /routes.json
   def index
@@ -63,6 +63,12 @@ class RoutesController < ApplicationController
     end
   end
 
+  def approve
+    @route.approve
+    @route.save
+    ApproveNotificationRouteJob.perform_later(@route.visitor)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route
@@ -71,6 +77,8 @@ class RoutesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def route_params
-      params.require(:route).permit(:tour_agency_id, :visitor_id, :start_date, :end_date, :hotel_id, :cost, {:place_ids=>[]}, :mode_of_transport)
+      r = params.require(:route).permit(:tour_agency_id, :visitor_id, :start_date, :end_date, :hotel_id, :cost, {:place_ids=>[]}, :mode_of_transport, :status)
+      r[:status] = params[:route][:status].to_i
+      r
     end
 end

@@ -1,5 +1,5 @@
 <p class="notice"><%= notice %></p>
-<% route=Route.new %>
+<% route= Route.new %>
 <%= form_with(model: route, local: true) do |form| %>
   <% if route.errors.any? %>
     <div id="error_explanation">
@@ -29,6 +29,10 @@
   <div class="field">
     <%= form.label :hotel_id %>
     <%= form.collection_select :hotel_id,Organization.where(type_of_services: 3), :id, :title %>
+  </div>
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status,Route.statuses.each{|type| type.first} %>
   </div>
   <div class="field">
     <h5>Places</h5>

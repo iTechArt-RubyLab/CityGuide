@@ -1,5 +1,3 @@
-
-<p id="notice"><%= notice %></p>
 <p>
   <strong>Photo:</strong>
   <div class="circular_image">
@@ -41,6 +39,10 @@
   <%= @profile.email_address %>
 </p>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Main page', main_url, method: :get %> |
+<%= link_to 'Edit', edit_profile_path(@profile) %> <br />
+<% if !current_user.is_admin%>
+<%= link_to 'Main page', main_url,method: :get %><br />
 <%= link_to 'Routes', routes_path %> 
+<% else %>
+<%= link_to 'Back', admin_url,method: :get %>
+<% end %>
