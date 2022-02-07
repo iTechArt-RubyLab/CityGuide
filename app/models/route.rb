@@ -43,4 +43,8 @@ class Route < ApplicationRecord
     places.map { |place| sum += place.organization.min_price }
     sum.round(2)
   end
+
+  def approve
+    self.status = 1
+  end
 end

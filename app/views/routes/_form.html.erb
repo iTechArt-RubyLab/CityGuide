@@ -1,5 +1,5 @@
 <p class="notice"><%= notice %></p>
-<% route=Route.new %>
+<% route= Route.new %>
 <%= form_with(model: route, local: true) do |form| %>
   <% if route.errors.any? %>
     <div id="error_explanation">
