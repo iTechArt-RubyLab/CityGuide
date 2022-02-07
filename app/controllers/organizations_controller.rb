@@ -3,11 +3,11 @@ class OrganizationsController < ApplicationController
 
   # GET /organizations or /organizations.json
   def index
-    @organizations = if params[:search_key]
-                       Organization.where('title LIKE ?', 'status = ?', "%#{params[:search_key]}%", 2)
-                     else
-                       Organization.where('status = ?', 2)
-                     end
+    if current_user.is_admin
+      @organizations = Organization.all
+    else 
+      @organizations = Organization.where('status = ?', 2)
+    end
   end
 
   # GET /organizations/1 or /organizations/1.json

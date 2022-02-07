@@ -31,6 +31,10 @@
     <%= form.collection_select :hotel_id,Organization.where(type_of_services: 3), :id, :title %>
   </div>
   <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status,Route.statuses.each{|type| type.first} %>
+  </div>
+  <div class="field">
     <h5>Places</h5>
     <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br />
     <%= form.collection_select(:place_ids, Organization.where.not(type_of_services: [3,7]), :id, :title, {} ,{:multiple => true}) %>

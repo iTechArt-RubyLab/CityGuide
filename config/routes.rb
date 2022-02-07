@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :profiles
   root to: 'home#index'
   get 'main',to: 'main#index'
-  get 'all_places',to: 'all_places#index'
+  get 'admin_view',to: 'admin_view#index'
   mount Sidekiq::Web => '/sidekiq'
   devise_for :users, controllers: {
     sessions: 'users/sessions',

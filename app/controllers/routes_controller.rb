@@ -71,6 +71,6 @@ class RoutesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def route_params
-      params.require(:route).permit(:tour_agency_id, :visitor_id, :start_date, :end_date, :hotel_id, :cost, {:place_ids=>[]}, :mode_of_transport)
+      params.require(:route).permit(:tour_agency_id, :visitor_id, :start_date, :end_date, :hotel_id, :cost, {:place_ids=>[]}, :mode_of_transport, :status)
     end
 end

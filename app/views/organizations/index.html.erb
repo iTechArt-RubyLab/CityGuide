@@ -47,4 +47,8 @@
 </center>
 <br>
 <%= link_to 'New Organization', new_organization_path %> </br>
+<% if current_user.is_admin %>
+<%= link_to 'Back', admin_view_url, method: :get %>
+<% else %>
 <%= link_to 'Back', main_url, method: :get %>
+<% end %>
