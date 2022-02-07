@@ -66,6 +66,7 @@ class RoutesController < ApplicationController
   def approve
     @route.approve
     @route.save
+    ApproveNotificationRouteJob.perform_later(@route.visitor)
   end
 
   private

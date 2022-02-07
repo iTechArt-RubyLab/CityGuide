@@ -67,6 +67,7 @@ class OrganizationsController < ApplicationController
   def approve
     @organization.approve
     @organization.save
+    ApproveNotificationOrganizationJob.perform_later(@organization.user)
   end
 
   private
