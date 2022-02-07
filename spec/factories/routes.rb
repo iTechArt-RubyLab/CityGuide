@@ -7,6 +7,7 @@
 #  end_date          :date
 #  mode_of_transport :string
 #  start_date        :date
+#  status            :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  hotel_id          :bigint           not null

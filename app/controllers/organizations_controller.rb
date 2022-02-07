@@ -1,13 +1,13 @@
 class OrganizationsController < ApplicationController
-  before_action :current_organization, only: %i[show edit update destroy]
+  before_action :set_organization, only: %i[show edit update destroy approve]
 
   # GET /organizations or /organizations.json
   def index
-    @organizations = if params[:search_key]
-                       Organization.where('title LIKE ?', 'status = ?', "%#{params[:search_key]}%", 2)
-                     else
-                       Organization.where('status = ?', 2)
-                     end
+    if current_user.is_admin
+      @organizations = Organization.all
+    else 
+      @organizations = Organization.where('status = ?', 2)
+    end
   end
 
   # GET /organizations/1 or /organizations/1.json
@@ -19,7 +19,7 @@ class OrganizationsController < ApplicationController
   end
 
   # GET /organizations/1/edit
-  def edit; end
+  def edit;end
 
   # POST /organizations or /organizations.json
   def create
@@ -48,7 +48,7 @@ class OrganizationsController < ApplicationController
         format.html { redirect_to organization_url(@organization), notice: 'Organization was successfully updated.' }
         format.json { render :show, status: :ok, location: @organization }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity, method: :put }
         format.json { render json: @organization.errors, status: :unprocessable_entity }
       end
     end
@@ -64,10 +64,16 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def approve
+    @organization.approve
+    @organization.save
+    ApproveNotificationOrganizationJob.perform_later(@organization.user)
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def current_organization
+  def set_organization
     @organization = Organization.find(params[:id])
   end
 

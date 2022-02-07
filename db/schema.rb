@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_215659) do
     t.date "start_date"
     t.date "end_date"
     t.bigint "hotel_id", null: false
+    t.integer "status"
     t.decimal "cost"
     t.string "mode_of_transport"
     t.datetime "created_at", precision: 6, null: false
