@@ -29,6 +29,11 @@ class OrganizationsController < ApplicationController
       if @organization.save
         format.html { redirect_to organization_url(@organization), notice: 'Organization was successfully created.' }
         format.json { render :show, status: :created, location: @organization }
+        CreateNotificationOrganizationJob.perform_later(current_user, 'wait confirmation from admin')
+        admins = User.where(is_admin: true)
+        (0..admins.size).each do |i|
+          CreateNotificationOrganizationJob.perform_later(admins[i], 'confirm the request')
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @organization.errors, status: :unprocessable_entity }
@@ -70,7 +75,7 @@ class OrganizationsController < ApplicationController
   def organization_params
     p = params.require(:organization).permit(:title, :min_price, :min_time, :price_one_hour, :price_two_hours,
                                              :start_work, :end_work, :type_of_services, :status,
-                                             place_attributes: %i[latitude longitude name])
+                                             place_attributes: %i[latitude longitude name], images: [])
     p[:type_of_services] = params[:organization][:type_of_services].to_i
     p[:status] = params[:organization][:status].to_i
     p

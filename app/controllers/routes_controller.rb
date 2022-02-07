@@ -27,6 +27,8 @@ class RoutesController < ApplicationController
       if @route.save
         format.html { redirect_to route_url(@route), notice: "Route was successfully created." }
         format.json { render :show, status: :created, location: @route }
+        CreateNotificationRouteJob.perform_later(current_user, 'wait confirmation from tour agency')
+        CreateNotificationRouteJob.perform_later(@route.tour_agency.user, 'confirm the request')
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @route.errors, status: :unprocessable_entity }
