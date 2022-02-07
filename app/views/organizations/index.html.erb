@@ -21,7 +21,11 @@
   <tbody>
     <% @organizations.each do |organization| %>
       <tr>
-        <td><%= image_tag organization.images.first.variant(resize_to_limit: [200, 200]).processed %></td>
+        <td>
+        <% if organization.images.attached? %>
+          <%= image_tag organization.images.first.variant(resize_to_limit: [200, 200]).processed %>
+        <% end %>
+        </td>
         <td><%= organization.title %></td>
         <td><%= organization.min_price %></td>
         <td><%= organization.min_time %></td>

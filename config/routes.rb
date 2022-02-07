@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   resources :routes
   resources :places
@@ -6,6 +8,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'main',to: 'main#index'
   get 'all_places',to: 'all_places#index'
+  mount Sidekiq::Web => '/sidekiq'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
