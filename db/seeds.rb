@@ -597,7 +597,7 @@ organizations = Organization.create!([
                                            }
                                        },
                                        {
-                                         title: 'Seven seas', min_price: 25, min_time: 20, price_one_hour: 25, price_two_hours: 25, start_work: '09:30', end_work: '19:00', type_of_services: 7, status: 2, user: users[3],
+                                         title: 'Seven seas', min_price: 25, min_time: 20, price_one_hour: 25, price_two_hours: 25, start_work: '09:30', end_work: '19:00', type_of_services: 7, status: 2, user: users[4],
                                          place_attributes:
                                            {
                                              name: 'Bolshaya Pushkarskaya st.,41', latitude: 59.963227, longitude: 30.31107
@@ -611,7 +611,7 @@ organizations = Organization.create!([
                                            }
                                        },
                                        {
-                                         title: 'Atis Tour', min_price: 30, min_time: 20, price_one_hour: 30, price_two_hours: 30, start_work: '09:00', end_work: '20:00', type_of_services: 7, status: 2, user: users[3],
+                                         title: 'Atis Tour', min_price: 30, min_time: 20, price_one_hour: 30, price_two_hours: 30, start_work: '09:00', end_work: '20:00', type_of_services: 7, status: 2, user: users[6],
                                          place_attributes:
                                            {
                                              name: 'Nevsky avenue,88', latitude: 59.932366, longitude: 30.351971

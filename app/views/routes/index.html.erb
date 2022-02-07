@@ -8,6 +8,7 @@
       <th>Start date</th>
       <th>End date</th>
       <th>Hotel</th>
+      <th>Status</th>
       <th>Cost</th>
       <th>Place</th>
       <th colspan="3"></th>
@@ -22,12 +23,25 @@
         <td><%= route.start_date %></td>
         <td><%= route.end_date %></td>
         <td><%= route.hotel.title %></td>
+        <td><%= route.status %></td>
         <td><%= route.cost %></td>
-        <td><%= route.places.map{|i| i.organization.title }%></td>
-        <td><%= link_to 'Show', route %></td>
-        <% if current_user.is_admin || route.tour_agency.user_id == current_user.id%>
-          <td><%= link_to 'Edit', edit_route_path(route) %></td>
+        <td><%= route.places.map{|i| i&.organization&.title }%></td>
+        <% if current_user.is_admin  %>
+          <td><%= link_to 'Show', route %></td> 
+          <td><%= link_to 'Edit', edit_route_path(id: route.id) %></td>
           <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% elsif route.tour_agency.user_id == current_user.id %>
+          <% if route.status != "approved"%>
+          <td><%= link_to 'Approve', approve_routes_path(id: route.id), method: :put %></td>
+          <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', route %></td>
+          <% else %>
+          <td><%= link_to 'Edit', edit_route_path(id: route.id) %></td>
+          <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', route %></td>
+          <% end %>
+        <% else %>
+          <td><%= link_to 'Show', route %></td>
         <% end %>
       </tr>
     <% end %>
@@ -35,5 +49,8 @@
 </table>
 
 <br>
-<%= link_to 'New Route', new_route_path %>|
-<%= link_to 'Main page', main_url, method: :get %>
+<% if current_user.is_admin %>
+<%= link_to 'Back', admin_view_url, method: :get%> <br />
+<% else %>
+<%= link_to 'Main page', main_url, method: :get %> <br />
+<% end %>
