@@ -1,27 +1,23 @@
 class MainPolicy < ApplicationPolicy
-    attr_reader :user, :record
+  attr_reader :user, :record
 
-    def initialize(user, record)
+  def initialize(user, record)
+    @user = user
+    @record = record
+  end
+
+  def index?
+    true
+  end
+
+  class Scope
+    def initialize(user, scope)
       @user = user
-      @record = record
+      @scope = scope
     end
-  
-    def index?
-      true
+
+    def resolve
+      scope.all
     end
-  
-    class Scope
-      def initialize(user, scope)
-        @user = user
-        @scope = scope
-      end
-  
-      def resolve
-        scope.all
-      end
-  
-      private
-  
-      attr_reader :user, :scope
-    end
+  end
 end
