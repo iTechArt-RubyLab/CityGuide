@@ -1,52 +1,47 @@
 <script type="text/javascript">
-  function initMap3(){
-    var infoOrganizations=[
+  function showOrganizations(){
+      let infoOrganizations = [
+          <% @organizations.each do |organization| %>
+              "<%='title:'+organization.title.to_s+', minimal price:'+organization.min_price.to_s+', address:'+organization.place.name.to_s%>",
+        <% end %>
+      ];
+      let organizations = [
         <% @organizations.each do |organization| %>
-            "<%='title:'+organization.title.to_s+',minimal price:'+organization.min_price.to_s+',address:'+organization.place.name.to_s%>",
-      <% end %>
-    ];
-    var organizations = [
-      <% @organizations.each do |organization| %>
-        {lat:<%= organization.place.latitude %>, lng:<%= organization.place.longitude %> },
-      <% end %>
-    ];
+          {lat:<%= organization.place.latitude %>, lng:<%= organization.place.longitude %> },
+        <% end %>
+      ];
 
-    var map = new google.maps.Map(document.getElementById('map'),{
-      zoom: 10,
-      center: new google.maps.LatLng(59.923468, 30.386436),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-
-    let infowindow = new google.maps.InfoWindow();
-
-    var marker, i;
-
-    for (i = 0; i < organizations.length; i++) {
-      console.log(organizations[i])
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(organizations[i]),
-        map: map,
+      let map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: new google.maps.LatLng(59.923468, 30.386436),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-      return function() {
-          infowindow.setContent(infoOrganizations[i]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
+      let infowindow = new google.maps.InfoWindow();
 
+      let marker, i;
 
+      for (i = 0; i < organizations.length; i++) {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(organizations[i]),
+          map: map,
+        });
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+            infowindow.setContent(infoOrganizations[i]);
+            infowindow.open(map, marker);
+          }
+        })(marker, i));
+      }
     }
-  }
+    document.addEventListener("DOMContentLoaded", showOrganizations);
 </script>
 <meta name='turbolinks-visit-control' content='reload'>
-<script>
-  document.addEventListener("DOMContentLoaded", initMap3);
-</script>
 <div class="container">
   <div class="row">
     <div class="col-sm-5">
-        <%= render 'routes/form', route: @route%>
+      <%= render 'routes/form', route: @route %>
     </div>
     <div class="col-sm">
       <div id="map"></div>
