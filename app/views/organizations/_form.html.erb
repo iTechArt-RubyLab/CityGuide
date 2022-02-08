@@ -1,8 +1,8 @@
 <% provide :head_tags do %>
   <script>
-    function initMap2() {
-        var lat = document.getElementById('organization_place_attributes_latitude').value;
-        var lng = document.getElementById('organization_place_attributes_longitude').value;
+    function initOrganization() {
+        let lat = document.getElementById('organization_place_attributes_latitude').value;
+        let lng = document.getElementById('organization_place_attributes_longitude').value;
 
         // if not defined create default position
         if (!lat || !lng){
@@ -12,15 +12,15 @@
             document.getElementById('organization_place_attributes_longitude').value = lng;
         }
 
-        var myCoords = new google.maps.LatLng(lat, lng);
-        var mapOptions = {
+        let myCoords = new google.maps.LatLng(lat, lng);
+        let mapOptions = {
             center: myCoords,
             zoom: 14
         };
 
-        var map = new google.maps.Map(document.getElementById('map2'), mapOptions);
+        let map = new google.maps.Map(document.getElementById('map2'), mapOptions);
 
-        var marker = new google.maps.Marker({
+        let marker = new google.maps.Marker({
             position: myCoords,
             animation: google.maps.Animation.DROP,
             map: map,
@@ -42,8 +42,8 @@
         // when marker is dragged update input values
         marker.addListener('drag', function() {
             latlng = marker.getPosition();
-            newlat=(Math.round(latlng.lat()*1000000))/1000000;
-            newlng=(Math.round(latlng.lng()*1000000))/1000000;
+            newlat = (Math.round(latlng.lat()*1000000))/1000000;
+            newlng = (Math.round(latlng.lng()*1000000))/1000000;
             document.getElementById('organization_place_attributes_latitude').value = newlat;
             document.getElementById('organization_place_attributes_longitude').value = newlng;
         });
@@ -53,17 +53,14 @@
             map.panTo(marker.getPosition());
         });
     }
+    document.addEventListener("DOMContentLoaded", initOrganization);
   </script>
   <meta name='turbolinks-visit-control' content='reload'>
-  <script>
-    document.addEventListener("DOMContentLoaded", initMap2);
-  </script>
 <% end %>
 <%= form_with(model: organization) do |form| %>
   <% if organization.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(organization.errors.count, "error") %> prohibited this organization from being saved:</h2>
-
+      <h2><%= pluralize(organization.errors.count, 'error') %> prohibited this organization from being saved:</h2>
       <ul>
         <% organization.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -71,76 +68,66 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= form.label :images %>
-    <%= form.file_field :images,multiple: true, type: "file" %>
-  </div> 
-
+    <%= form.file_field :images, multiple: true, type: 'file' %>
+  </div>
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
-
   <div class="field">
     <%= form.label :min_price %>
     <%= form.text_field :min_price %>
   </div>
-
   <div class="field">
     <%= form.label :min_time %>
     <%= form.number_field :min_time %>
   </div>
-
   <div class="field">
     <%= form.label :price_one_hour %>
     <%= form.text_field :price_one_hour %>
   </div>
-
   <div class="field">
     <%= form.label :price_two_hours %>
     <%= form.text_field :price_two_hours %>
   </div>
-
   <div class="field">
     <%= form.label :start_work %>
     <%= form.time_select :start_work%>
   </div>
-
   <div class="field">
     <%= form.label :end_work %>
     <%= form.time_select :end_work%>
   </div>
-
   <div class="field">
     <%= form.label :type_of_services %>
-    <%= form.select :type_of_services,Organization.type_of_services.each{|type| type.first} %>
+    <%= form.select :type_of_services, Organization.type_of_services.each{|type| type.first} %>
   </div>
-
   <div class="field">
     <%= form.label :status %>
     <%= form.select :status,Organization.statuses.each{|type| type.first} %>
   </div>
   <%= form.fields_for :place_attributes do |place_form| %>
     <div class="field">
-    <%= place_form.label :name%>
-    <%= place_form.text_field :name %>
+      <%= place_form.label :name%>
+      <%= place_form.text_field :name %>
     </div>
     <div class="field">
-    <%= place_form.label :latitude%>
-    <%= place_form.text_field :latitude %>
+      <%= place_form.label :latitude%>
+      <%= place_form.text_field :latitude %>
     </div>
     <div class="field">
-    <%= place_form.label :longitude%>
-    <%= place_form.text_field :longitude %>
+      <%= place_form.label :longitude%>
+      <%= place_form.text_field :longitude %>
     </div>
     <center>
-    <p>
-      <div id="map2"></div>
-    </p>
+      <p>
+        <div id="map2"></div>
+      </p>
     </center>
   <% end %>
   <div class="actions">
-    <%= form.submit :class=> "btn btn-primary",style: "background-color: #91D6F1;"%>
+    <%= form.submit class: "btn btn-primary", style: "background-color: #91D6F1;"%>
   </div>
 <% end %>
