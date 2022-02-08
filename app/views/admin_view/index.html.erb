@@ -1,17 +1,17 @@
 <script type="text/javascript">
-  function initMap3(){
-    var infoOrganizations=[
+  function showOrganizations(){
+    let infoOrganizations = [
         <% @organizations.each do |organization| %>
-            "<%='title:'+organization.title.to_s+',minimal price:'+organization.min_price.to_s+',address:'+organization.place.name.to_s%>",
+            "<%='title:'+organization.title.to_s+', minimal price:'+organization.min_price.to_s+', address:'+organization.place.name.to_s%>",
       <% end %>
     ];
-    var organizations = [
+    let organizations = [
       <% @organizations.each do |organization| %>
         {lat:<%= organization.place.latitude %>, lng:<%= organization.place.longitude %> },
       <% end %>
     ];
 
-    var map = new google.maps.Map(document.getElementById('map'),{
+    let map = new google.maps.Map(document.getElementById('map'), {
       zoom: 10,
       center: new google.maps.LatLng(59.923468, 30.386436),
       mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -19,10 +19,9 @@
 
     let infowindow = new google.maps.InfoWindow();
 
-    var marker, i;
+    let marker, i;
 
     for (i = 0; i < organizations.length; i++) {
-      console.log(organizations[i])
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(organizations[i]),
         map: map,
@@ -38,17 +37,15 @@
 
     }
   }
+  document.addEventListener("DOMContentLoaded", showOrganizations);  
 </script>
-<meta name='turbolinks-visit-control' content='reload'>
-<script>
-  document.addEventListener("DOMContentLoaded", initMap3);
-</script>
+<meta name='turbolinks-visit-control' content='reload' >
 <center>
-<div class="col-sm">
-      <div id="map"></div>
-</div>
+  <div class="col-sm">
+    <div id="map"></div>
+  </div>
 </center>
 <br />
-<%= button_to "All organizations", organizations_path, :method => "get" ,:class=> "btn btn-primary",style: "background-color: #91D6F1;height:50px;width:200px"%><br />
-<%= button_to "All routes", routes_path, :method => "get" ,:class=> "btn btn-primary",style: "background-color: #91D6F1;height:50px;width:200px"%><br />
-<%= button_to "All users", profiles_path, :method => "get" ,:class=> "btn btn-primary",style: "background-color: #91D6F1;height:50px;width:200px"%>
+<%= button_to 'All organizations', organizations_path, method: :get, class: "btn btn-primary", style: "background-color: #91D6F1; height:50px; width:200px"%><br />
+<%= button_to 'All routes', routes_path, method: :get, class: "btn btn-primary", style: "background-color: #91D6F1; height:50px; width:200px"%><br />
+<%= button_to 'All users', profiles_path, method: :get, class: "btn btn-primary", style: "background-color: #91D6F1; height:50px; width:200px"%>
