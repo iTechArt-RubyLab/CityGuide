@@ -10,7 +10,7 @@ module Users
     #   super
     # end
     # POST /resource
-    #def create
+    # def create
     #   super
     # end
 
