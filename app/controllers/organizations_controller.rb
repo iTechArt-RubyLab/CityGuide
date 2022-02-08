@@ -53,8 +53,7 @@ class OrganizationsController < ApplicationController
   end
 
   def approve
-    @organization.approve
-    @organization.save
+    @organization.update(status: 'approved')
     ApproveNotificationOrganizationJob.perform_later(@organization.user)
   end
 
